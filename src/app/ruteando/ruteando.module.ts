@@ -21,10 +21,11 @@ import { QuienSoyComponent } from '../componentes/quien-soy/quien-soy.component'
 import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/listado-de-paises.component'
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
-
+import { ErrorPruebaComponent } from '../componentes/error-prueba/error-prueba.component';
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
+{path: 'errorPrueba', component: ErrorPruebaComponent},
 {path: 'Jugadores' , component: JugadoresListadoComponent},
 {path: '' , component: PrincipalComponent},
 {path: 'Login' , component: LoginComponent},
@@ -45,11 +46,13 @@ children:
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent}]
 },
 {path: '**' , component: ErrorComponent},
-{path: 'error' , component: ErrorComponent}];
+{path: 'error' , component: ErrorComponent,
+}];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(MiRuteo)
+    RouterModule.forRoot(MiRuteo),
+    //ErrorPruebaComponent
   ],
   exports: [
     RouterModule

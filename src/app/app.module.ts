@@ -26,6 +26,10 @@ import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/
 import { RuteandoModule } from './ruteando/ruteando.module';
 import { ListadoComponent } from './componentes/listado/listado.component';
 // declaro donde quiero que se dirija
+
+
+const miRuteoPrueba = [{path: 'errorPrueba', component: ErrorPruebaComponent}];
+
 /*
 const MiRuteo = [{path: 'error' , component: ErrorComponent},
 {path: 'Login' , component: LoginComponent},
@@ -53,8 +57,8 @@ import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-goog
 import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
-import { PruebaComponenteComponent } from './prueba-componente/prueba-componente.component';
 import { LoginPruebaComponent } from './componentes/login-prueba/login-prueba.component';
+import { ErrorPruebaComponent } from './componentes/error-prueba/error-prueba.component';
 
 @NgModule({
   declarations: [
@@ -81,8 +85,8 @@ import { LoginPruebaComponent } from './componentes/login-prueba/login-prueba.co
     JugadoresListadoComponent,
     InputJugadoresComponent,
     SexoPipe,
-    PruebaComponenteComponent,
-    LoginPruebaComponent
+    LoginPruebaComponent,
+    ErrorPruebaComponent
   ],
   imports: [
     BrowserModule,
