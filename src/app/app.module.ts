@@ -28,8 +28,6 @@ import { ListadoComponent } from './componentes/listado/listado.component';
 // declaro donde quiero que se dirija
 
 
-const miRuteoPrueba = [{path: 'errorPrueba', component: ErrorPruebaComponent}];
-
 /*
 const MiRuteo = [{path: 'error' , component: ErrorComponent},
 {path: 'Login' , component: LoginComponent},
@@ -59,6 +57,7 @@ import { InputJugadoresComponent } from './componentes/input-jugadores/input-jug
 import { SexoPipe } from './pipes/sexo.pipe';
 import { LoginPruebaComponent } from './componentes/login-prueba/login-prueba.component';
 import { ErrorPruebaComponent } from './componentes/error-prueba/error-prueba.component';
+import { JuegoDadosComponent } from './componentes/juego-dados/juego-dados.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +85,8 @@ import { ErrorPruebaComponent } from './componentes/error-prueba/error-prueba.co
     InputJugadoresComponent,
     SexoPipe,
     LoginPruebaComponent,
-    ErrorPruebaComponent
+    ErrorPruebaComponent,
+    JuegoDadosComponent
   ],
   imports: [
     BrowserModule,

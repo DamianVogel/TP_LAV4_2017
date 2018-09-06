@@ -22,37 +22,37 @@ import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/lista
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { ErrorPruebaComponent } from '../componentes/error-prueba/error-prueba.component';
+import { JuegoDadosComponent } from '../componentes/juego-dados/juego-dados.component';
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
-{path: 'errorPrueba', component: ErrorPruebaComponent},
-{path: 'Jugadores' , component: JugadoresListadoComponent},
-{path: '' , component: PrincipalComponent},
-{path: 'Login' , component: LoginComponent},
-{path: 'Mapa' , component: MapaDeGoogleComponent},
-{path: 'QuienSoy' , component: QuienSoyComponent},
-{path: 'Registro' , component: RegistroComponent},
-{path: 'Principal' , component: PrincipalComponent},
-{path: 'Listado' , component: ListadoComponent},
-{path: 'Paises' , component: ListadoDePaisesComponent},
-
-{ path: 'Juegos' ,
-component: JuegosComponent ,
-children:
-     [{path: '' , component: MenuCardComponent},
-     {path: 'Adivina' , component: AdivinaElNumeroComponent},
+  {path: 'errorPrueba', component: ErrorPruebaComponent},
+  {path: 'Jugadores' , component: JugadoresListadoComponent},
+  {path: '' , component: PrincipalComponent},
+  {path: 'Login' , component: LoginComponent},
+  {path: 'Mapa' , component: MapaDeGoogleComponent},
+  {path: 'QuienSoy' , component: QuienSoyComponent},
+  {path: 'Registro' , component: RegistroComponent},
+  {path: 'Principal' , component: PrincipalComponent},
+  {path: 'Listado' , component: ListadoComponent},
+  {path: 'Paises' , component: ListadoDePaisesComponent},
+  {path: 'Juegos' ,component: JuegosComponent,
+    children:[
+      {path: '' , component: MenuCardComponent},
+      {path: 'Adivina' , component: AdivinaElNumeroComponent},
       {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
-      {path: 'Agilidad' , component: AgilidadAritmeticaComponent}]
-},
-{path: '**' , component: ErrorComponent},
-{path: 'error' , component: ErrorComponent,
-}];
+      {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
+    ]},
+  {path: '**' , component: ErrorComponent},
+  {path: 'error' , component: ErrorComponent},
+  {path: 'Dados' , component: JuegoDadosComponent}
+];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(MiRuteo),
-    //ErrorPruebaComponent
+    
   ],
   exports: [
     RouterModule
