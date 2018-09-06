@@ -23,6 +23,7 @@ import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-goo
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { ErrorPruebaComponent } from '../componentes/error-prueba/error-prueba.component';
 import { JuegoDadosComponent } from '../componentes/juego-dados/juego-dados.component';
+import { JuegoServiceService } from '../servicios/juego-service.service';
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
@@ -43,10 +44,10 @@ const MiRuteo = [
       {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
+      {path: 'Dados' , component: JuegoDadosComponent}
     ]},
   {path: '**' , component: ErrorComponent},
-  {path: 'error' , component: ErrorComponent},
-  {path: 'Dados' , component: JuegoDadosComponent}
+  {path: 'error' , component: ErrorComponent}
 ];
 
 @NgModule({
