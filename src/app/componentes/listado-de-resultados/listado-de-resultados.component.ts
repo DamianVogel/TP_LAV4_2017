@@ -1,5 +1,7 @@
 
 import { Component, OnInit , Input, EventEmitter} from '@angular/core';
+import { ListadoComponent } from '../listado/listado.component';
+import { ListadosComponent } from '../listados/listados.component';
 
 @Component({
   selector: 'app-listado-de-resultados',
@@ -10,9 +12,12 @@ export class ListadoDeResultadosComponent implements OnInit {
  @Input()
  listado: Array<any>;
 
+ prueba: string; 
 
-  constructor() {
-   }
+  constructor() {  
+    this.listado;
+   
+  }
 
   ngOnInit() {
 

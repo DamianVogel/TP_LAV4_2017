@@ -3,3 +3,16 @@
 20-09 -CAMBIO TOTAL DE IMAGENES Y CAMBIO DE DISEÑO.
 27-09 ENTREGA DEL TP.
 04-10 PARCIAL
+
+-Practicar Binding
+-Hacer Logging
+
+
+
+[(NgModel)] corchete = "nombre"
+
+{{nombre}}
+
+(click) = "miusuario.Guardar()"
+
+corchetes = alt + 91 + 93

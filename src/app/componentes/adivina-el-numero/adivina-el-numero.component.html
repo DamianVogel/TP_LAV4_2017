@@ -10,8 +10,10 @@
 <form name="juego">
 
    <label>ingrese numero:  </label>  <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
+    <input  type="text" [(ngModel)]="nuevoJuego.prueba" name="prueba" placeholder="aca va" >
+   
     <h1>{{nuevoJuego.numeroIngresado}}  </h1>
- 
+    <h2>{{nuevoJuego.prueba}}</h2>
     <h2 [hidden]="ocultarVerificar"><button  *ngIf="nuevoJuego.numeroSecreto!=0" (click)="verificar()" class="btn btn-success btn-lg">Verificar</button></h2>
  
     <h2><button *ngIf="nuevoJuego.numeroSecreto==0 " (click)="generarnumero()"  class="btn btn-info btn-lg">Nuevo número secreto</button></h2>
