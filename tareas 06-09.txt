@@ -1,4 +1,4 @@
-13-09 DISEÑO Y PUBLICACION EN LA WEB DE LA SALA DE JUEGO.
+﻿13-09 DISEÑO Y PUBLICACION EN LA WEB DE LA SALA DE JUEGO.
 16-09 LOGICA Y FUNCIONALIDAD DEL JUEGO.
 20-09 -CAMBIO TOTAL DE IMAGENES Y CAMBIO DE DISEÑO.
 27-09 ENTREGA DEL TP.
@@ -16,3 +16,8 @@
 (click) = "miusuario.Guardar()"
 
 corchetes = alt + 91 + 93
+
+
+Para instalar.
+--------------
+npm install -g @angular/cli
