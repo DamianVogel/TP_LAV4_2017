@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
@@ -11,10 +12,15 @@ import { Component, OnInit } from '@angular/core';
               './css/style.css',
               './css/superfish.css',
               './sass/style.scss',
-              './sass/bootstrap.scss',
+              './sass/bootstrap.scss'
+              
 
              ]
-})
+
+
+
+
+            })
 export class PrincipalComponent implements OnInit {
  public status: any = {
     isFirstOpen: true,
