@@ -21,3 +21,8 @@ corchetes = alt + 91 + 93
 Para instalar.
 --------------
 npm install -g @angular/cli
+
+
+para publicar en github
+
+https://github.com/angular/angular-cli/wiki/stories-github-pages
