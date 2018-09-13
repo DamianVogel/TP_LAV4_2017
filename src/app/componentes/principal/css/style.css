@@ -11,6 +11,27 @@
 *	Edit this section
 *
 * ======================================================= */
+.QuienSoy{
+  background-image: url(../images/work-1.jpg); 
+}
+
+.Juegos{
+  background-image: url(../images/work-2.jpg);
+}
+
+.ListadoDeResultados{
+  background-image: url(../images/work-3.jpg);
+
+}
+
+.Configuracion{
+  background-image: url(../images/work-4.jpg);
+}
+
+.Resultados{
+  background-image: url(../images/work-5.jpg);
+
+}
 body {
   font-family: "Open Sans", Arial, sans-serif;
   line-height: 1.6;
@@ -23,6 +44,8 @@ body {
 body.fh5co-offcanvas {
   overflow: hidden;
 }
+
+
 
 a {
   color: #66D37E;
@@ -348,7 +371,7 @@ figure {
 }
 
 #fh5co-primary-menu > li > ul li.active > a {
-  color: #66D37E !important;
+  color: rgb(70, 146, 86) !important;
 }
 #fh5co-primary-menu > li > .sf-with-ul:after {
   border: none !important;

@@ -10,6 +10,11 @@
     margin-bottom: 40px;
 }
 
+.prueba{
+  background-image: url(/src/assets/imagenes/cerebro.jpg); 
+
+}
+
 
 .hero-text {
 text-align: center;

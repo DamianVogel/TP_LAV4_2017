@@ -786,6 +786,7 @@ figure {
 				width: 100%;	
 			}
 		}	
+		
 		&.one-third {
 			width: 32.3%;
 			@media screen and (max-width: $screen-sm) {
@@ -797,6 +798,16 @@ figure {
 		}
 		&.one-half {
 			width: 49%;
+			@media screen and (max-width: $screen-xs) {
+				width: 100%;	
+			}
+		}
+
+		&.one-third-full {
+			width: 100%;
+			@media screen and (max-width: $screen-sm) {
+				width: 49%;	
+			}
 			@media screen and (max-width: $screen-xs) {
 				width: 100%;	
 			}
