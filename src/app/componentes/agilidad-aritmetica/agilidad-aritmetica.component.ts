@@ -29,7 +29,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   }
   
   NuevoJuego() {
-    //console.log(this.nuevoJuego.gano);
+    this.ocultarVerificar= false;
     this.Tiempo=15; 
     this.nuevoJuego = new JuegoAgilidad(); 
     this.ocultarVerificar= false;
