@@ -1,0 +1,8 @@
+.contenedorJuego{
+    position: relative;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+}

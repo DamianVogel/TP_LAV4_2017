@@ -29,10 +29,9 @@ export class AgilidadAritmeticaComponent implements OnInit {
   }
   
   NuevoJuego() {
-    
+    //console.log(this.nuevoJuego.gano);
     this.Tiempo=15; 
-    this.nuevoJuego = new JuegoAgilidad();
-    this.nuevoJuego.gano = false;
+    this.nuevoJuego = new JuegoAgilidad(); 
     this.ocultarVerificar= false;
     this.repetidor = setInterval( ()=>{ 
       
@@ -70,21 +69,17 @@ export class AgilidadAritmeticaComponent implements OnInit {
         break;
     }
     
-  if(numeroVerifica == this.nuevoJuego.numeroIngresado){
-  
-    this.nuevoJuego.gano = true;
-  
-  }else{
+    if(numeroVerifica == this.nuevoJuego.numeroIngresado){
 
-    this.nuevoJuego.gano = false;
+      this.nuevoJuego.gano = true;
 
-  }
+    }else{
+
+      this.nuevoJuego.gano = false;
+    }
 
     console.log(this.nuevoJuego.gano);
-    this.ocultarVerificar=false;
-  
-    
-    
+    this.ocultarVerificar=false;    
     clearInterval(this.repetidor);
   }  
 
