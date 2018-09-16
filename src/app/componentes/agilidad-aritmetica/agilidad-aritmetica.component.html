@@ -4,21 +4,23 @@
 
 <div name="contenedorJuego" class="contenedorJuego">
   <form name="juego">
-    <div *ngIf="!ocultarVerificar">
+    <div *ngIf="ocultarTabla">
           Primer número: <input value={{nuevoJuego.numeroRandom1}} name="numeroRandom1" type="text" class="form-control" style="width:50%" readonly/>
         
           Operador: <input value={{nuevoJuego.operador}} name="operador" type="text" class="form-control" style="width:50%" readonly/>
        
           Segundo número: <input value={{nuevoJuego.numeroRandom2}} name="numeroRandom2" type="text" class="form-control" style="width:50%" readonly/>
        
-          Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
-       
-          <h2>
-            <button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button>
-          </h2>   
+          Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>         
     </div>
 
-    <div *ngIf="ocultarVerificar">  
+    <div *ngIf="ocultarVerificar">
+      <h2>
+        <button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button>
+      </h2>   
+    </div>
+
+    <div *ngIf="ocultarNuevoJuego">  
       <h2>
         <button  (click)="NuevoJuego()"  class="btn btn-info btn-lg">
           Nuevo
@@ -28,8 +30,8 @@
   
     
     <div>       
-      <h3 *ngIf="nuevoJuego.gano">usted adivino el número</h3>
-      <h3 *ngIf="!nuevoJuego.gano">usted aún no gano </h3>   
+      <h3 *ngIf="nuevoJuego.gano">Felicitaciones! El resultado es correcto!</h3>
+      <h3 *ngIf="nuevoJuego.perdio">El resultado es incorrecto, mejor suerte la proxima vez! </h3>   
     </div>
   </form>
 </div>
