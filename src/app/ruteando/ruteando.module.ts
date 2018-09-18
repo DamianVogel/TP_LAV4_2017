@@ -24,6 +24,7 @@ import { JugadoresListadoComponent } from '../componentes/jugadores-listado/juga
 import { ErrorPruebaComponent } from '../componentes/error-prueba/error-prueba.component';
 import { JuegoDadosComponent } from '../componentes/juego-dados/juego-dados.component';
 import { JuegoServiceService } from '../servicios/juego-service.service';
+import { PiedraPapelTijeraComponent } from '../componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
@@ -44,7 +45,8 @@ const MiRuteo = [
       {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
-      {path: 'Dados' , component: JuegoDadosComponent}
+      {path: 'Dados' , component: JuegoDadosComponent},
+      {path: 'PPT' , component: PiedraPapelTijeraComponent}
     ]},
   {path: '**' , component: ErrorComponent},
   {path: 'error' , component: ErrorComponent}

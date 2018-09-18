@@ -58,6 +58,7 @@ import { SexoPipe } from './pipes/sexo.pipe';
 import { LoginPruebaComponent } from './componentes/login-prueba/login-prueba.component';
 import { ErrorPruebaComponent } from './componentes/error-prueba/error-prueba.component';
 import { JuegoDadosComponent } from './componentes/juego-dados/juego-dados.component';
+import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,9 @@ import { JuegoDadosComponent } from './componentes/juego-dados/juego-dados.compo
     SexoPipe,
     LoginPruebaComponent,
     ErrorPruebaComponent,
-    JuegoDadosComponent
+    JuegoDadosComponent,
+    PiedraPapelTijeraComponent
+    
   ],
   imports: [
     BrowserModule,
