@@ -25,6 +25,8 @@ export class PiedraPapelTijeraComponent implements OnInit {
   }
 
   Seleccion (eleccion){ 
+    this.divEleccionUsuario = false;
+    
     switch(eleccion){
         case 'piedra':
           this.eleccion = eleccion;
@@ -67,7 +69,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
       
 
   Definicion(){ 
-    
+
         this.decisionOrdenador = this.DecisionOrdenador();
 
     
@@ -95,7 +97,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
         }
         
         
-     
+        this.botonNuevoJuego = true;
      
       }  
 
