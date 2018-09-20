@@ -8,24 +8,55 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PiedraPapelTijeraComponent implements OnInit {
 
-  seleccion = '';
+  eleccion : string;
+  botonNuevoJuego : boolean;
+  divEleccionUsuario : boolean;
+  decisionOrdenador : string;
+
 
   constructor() {
-    //this.seleccion = '';
+    this.botonNuevoJuego = true;
+    this.divEleccionUsuario = false;
 
    }
 
   ngOnInit() {
-    this.Juego();
+  
   }
 
-  Juego(){
-      
+  Seleccion (eleccion){ 
+    switch(eleccion){
+        case 'piedra':
+          this.eleccion = eleccion;
+          break;
+
+        case 'papel':
+          this.eleccion = eleccion;
+          break;
+
+        case 'tijera':
+          this.eleccion = eleccion;
+          break;
+    }
+    return this.eleccion;
+  }
+
+
+
+
+  NuevoJuego(){
+    this.botonNuevoJuego = false;  
+    this.divEleccionUsuario = true;
     
     //Primera parte del juego, pide al usuario que elija entre piedra, papel o tijera.
-    var decisionUsuario = this.seleccion;
+    
+    
+    
+    
+    
+    //var this.eleccion = this.seleccion;
 
-    console.log(decisionUsuario);
+    //console.log(this.eleccion);
     //Segunda parte del juego. El ordenador "decide" su elección de forma aleatoria.
       var aleatorio = function() {
       var numero =  Math.floor((Math.random()*3)+1); 
@@ -33,48 +64,59 @@ export class PiedraPapelTijeraComponent implements OnInit {
       var respuesta;
       
         if (numero == 1) {
-          respuesta = "Piedra";
+          respuesta = "piedra";
         } else if (numero == 2) {
-          respuesta = "Papel";
+          respuesta = "papel";
         } else {
-          respuesta = "Tijera";
+          respuesta = "tijera";
         }
           return respuesta;
       };
 
     var decisionOrdenador = aleatorio();
     
-    console.log ("Usuario: " +decisionUsuario + ", Ordenador: " +decisionOrdenador);
+    //console.log ("Usuario: " +this.eleccion + ", Ordenador: " +decisionOrdenador);
 
     
     //Tercera parte del juego. Se decide quién es el ganador
-    var logicaJuego = function(decisionUsuario, decisionOrdenador) {
-        if (decisionUsuario == decisionOrdenador) {
-            return console.log("Empate, los dos eligieron " +decisionUsuario);
+    
+        if (this.eleccion == decisionOrdenador) {
+            return console.log("Empate, los dos eligieron " +this.eleccion);
         } else {
-            if (decisionUsuario == "Piedra" && decisionOrdenador == "Papel") {
-                console.log(""+decisionUsuario +" vs " +decisionOrdenador + ", gana el ordenador.");
+            if (this.eleccion == "piedra" && decisionOrdenador == "papel") {
+                console.log(""+this.eleccion +" vs " +decisionOrdenador + ", gana el ordenador.");
             } 
-            if (decisionUsuario == "Piedra" && decisionOrdenador == "Tijera") {
-                console.log(""+decisionUsuario +" vs " +decisionOrdenador + ", gana el usuario");
+            if (this.eleccion == "piedra" && decisionOrdenador == "tijera") {
+                console.log(""+this.eleccion +" vs " +decisionOrdenador + ", gana el usuario");
             } 
-            if (decisionUsuario == "Papel" && decisionOrdenador == "Tijera") { 
-                console.log(""+decisionUsuario +" vs " +decisionOrdenador + ", gana el ordenador.");
+            if (this.eleccion == "papel" && decisionOrdenador == "tijera") { 
+                console.log(""+this.eleccion +" vs " +decisionOrdenador + ", gana el ordenador.");
             }
-            if (decisionUsuario == "Papel" && decisionOrdenador == "Piedra"){
-                console.log(""+decisionUsuario +" vs " +decisionOrdenador + ", gana el usuario");
+            if (this.eleccion == "papel" && decisionOrdenador == "piedra"){
+                console.log(""+this.eleccion +" vs " +decisionOrdenador + ", gana el usuario");
             }
-            if (decisionUsuario == "Tijera" && decisionOrdenador == "Piedra") {
-                console.log(""+decisionUsuario +" vs " +decisionOrdenador + ", gana el ordenador.");
+            if (this.eleccion == "tijera" && decisionOrdenador == "piedra") {
+                console.log(""+this.eleccion +" vs " +decisionOrdenador + ", gana el ordenador.");
                 }
-            if (decisionUsuario == "Tijera" && decisionOrdenador == "Papel") {
-                console.log(""+decisionUsuario +" vs " +decisionOrdenador + ", gana el usuario");
+            if (this.eleccion == "tijera" && decisionOrdenador == "papel") {
+                console.log(""+this.eleccion +" vs " +decisionOrdenador + ", gana el usuario");
             }
         }
       };
 
-    logicaJuego(decisionUsuario, decisionOrdenador);
+    //logicaJuego(this.eleccion, decisionOrdenador);
+};
+    
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
 
-  }
+  
 
-}
