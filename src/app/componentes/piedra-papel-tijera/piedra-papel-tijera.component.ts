@@ -38,73 +38,68 @@ export class PiedraPapelTijeraComponent implements OnInit {
           this.eleccion = eleccion;
           break;
     }
-    return this.eleccion;
+    
+    this.Definicion();
   }
 
 
+  DecisionOrdenador() {
+    var numero =  Math.floor((Math.random()*3)+1); 
+    
+    var respuesta;
+    
+      if (numero == 1) {
+        respuesta = "piedra";
+      } else if (numero == 2) {
+        respuesta = "papel";
+      } else {
+        respuesta = "tijera";
+      }
+        return respuesta;
+    };
 
 
   NuevoJuego(){
     this.botonNuevoJuego = false;  
     this.divEleccionUsuario = true;
     
-    //Primera parte del juego, pide al usuario que elija entre piedra, papel o tijera.
-    
-    
-    
-    
-    
-    //var this.eleccion = this.seleccion;
-
-    //console.log(this.eleccion);
-    //Segunda parte del juego. El ordenador "decide" su elección de forma aleatoria.
-      var aleatorio = function() {
-      var numero =  Math.floor((Math.random()*3)+1); 
+  };
       
-      var respuesta;
-      
-        if (numero == 1) {
-          respuesta = "piedra";
-        } else if (numero == 2) {
-          respuesta = "papel";
-        } else {
-          respuesta = "tijera";
-        }
-          return respuesta;
-      };
 
-    var decisionOrdenador = aleatorio();
+  Definicion(){ 
     
-    //console.log ("Usuario: " +this.eleccion + ", Ordenador: " +decisionOrdenador);
+        this.decisionOrdenador = this.DecisionOrdenador();
 
     
-    //Tercera parte del juego. Se decide quién es el ganador
-    
-        if (this.eleccion == decisionOrdenador) {
+        if (this.eleccion == this.decisionOrdenador) {
             return console.log("Empate, los dos eligieron " +this.eleccion);
         } else {
-            if (this.eleccion == "piedra" && decisionOrdenador == "papel") {
-                console.log(""+this.eleccion +" vs " +decisionOrdenador + ", gana el ordenador.");
+            if (this.eleccion == "piedra" && this.decisionOrdenador == "papel") {
+                console.log(""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.");
             } 
-            if (this.eleccion == "piedra" && decisionOrdenador == "tijera") {
-                console.log(""+this.eleccion +" vs " +decisionOrdenador + ", gana el usuario");
+            if (this.eleccion == "piedra" && this.decisionOrdenador == "tijera") {
+                console.log(""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario");
             } 
-            if (this.eleccion == "papel" && decisionOrdenador == "tijera") { 
-                console.log(""+this.eleccion +" vs " +decisionOrdenador + ", gana el ordenador.");
+            if (this.eleccion == "papel" && this.decisionOrdenador == "tijera") { 
+                console.log(""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.");
             }
-            if (this.eleccion == "papel" && decisionOrdenador == "piedra"){
-                console.log(""+this.eleccion +" vs " +decisionOrdenador + ", gana el usuario");
+            if (this.eleccion == "papel" && this.decisionOrdenador == "piedra"){
+                console.log(""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario");
             }
-            if (this.eleccion == "tijera" && decisionOrdenador == "piedra") {
-                console.log(""+this.eleccion +" vs " +decisionOrdenador + ", gana el ordenador.");
+            if (this.eleccion == "tijera" && this.decisionOrdenador == "piedra") {
+                console.log(""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.");
                 }
-            if (this.eleccion == "tijera" && decisionOrdenador == "papel") {
-                console.log(""+this.eleccion +" vs " +decisionOrdenador + ", gana el usuario");
+            if (this.eleccion == "tijera" && this.decisionOrdenador == "papel") {
+                console.log(""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario");
             }
         }
-      };
+        
+        
+     
+     
+      }  
 
-    //logicaJuego(this.eleccion, decisionOrdenador);
+    //logicaJuego(this.eleccion, this.decisionOrdenador);
 };
     
   
