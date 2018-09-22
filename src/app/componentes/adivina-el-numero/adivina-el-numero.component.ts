@@ -8,7 +8,8 @@ import { JuegoAdivina } from '../../clases/juego-adivina'
   styleUrls: ['./adivina-el-numero.component.css']
 })
 export class AdivinaElNumeroComponent implements OnInit {
- @Output() enviarJuego: EventEmitter<any>= new EventEmitter<any>();
+ 
+  @Output() enviarJuego: EventEmitter<any>= new EventEmitter<any>();
 
   nuevoJuego: JuegoAdivina;
   Mensajes:string;
@@ -17,31 +18,39 @@ export class AdivinaElNumeroComponent implements OnInit {
   
 
   constructor() { 
+    
     this.nuevoJuego = new JuegoAdivina();
-    console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
+    this.contador=0;
+    this.nuevoJuego.generarnumero();
+    console.info("numero Secreto:",this.nuevoJuego.numeroSecreto +" - Contador: "+this.contador);  
     this.ocultarVerificar=false;
   }
-  generarnumero() {
-    this.nuevoJuego.generarnumero();
-    this.contador=0;
+  
+
+  generarnumero()
+  {
+    this.constructor();
   }
+
   verificar()
   {
     this.contador++;
+    console.log("El contador va: "+this.contador);
     this.ocultarVerificar=true;
-    console.info("numero Secreto:",this.nuevoJuego.gano);  
+    //console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
     if (this.nuevoJuego.verificar()){
       
-      this.enviarJuego.emit(this.nuevoJuego);
+      this.enviarJuego.emit(this.nuevoJuego); //<--- ESTO MANDA ALGO ANDA SABER DONDE.
       this.MostarMensaje("Sos un Genio!!!",true);
-      this.nuevoJuego.numeroSecreto=0;
+      this.contador = 0;
+      //this.nuevoJuego.numeroSecreto=0;
 
     }else{
 
       let mensaje:string;
       switch (this.contador) {
         case 1:
-          mensaje="No, intento fallido, animo";
+          mensaje="No, intento fallido, animo.";
           break;
           case 2:
           mensaje="No,Te estaras Acercando???";
@@ -56,19 +65,22 @@ export class AdivinaElNumeroComponent implements OnInit {
           mensaje=" intentos y nada.";
           break;
           case 6:
-          mensaje="Afortunado en el amor";
+          mensaje="Afortunado en el amor.";
           break;
       
         default:
-            mensaje="Ya le erraste "+ this.contador+" veces";
+            mensaje="Ya le erraste "+ this.contador+" veces.";
           break;
       }
-      this.MostarMensaje("#"+this.contador+" "+mensaje+" ayuda :"+this.nuevoJuego.retornarAyuda());
+      this.MostarMensaje("#"+this.contador+" "+mensaje+" Ayuda: "+this.nuevoJuego.retornarAyuda());
      
 
     }
-    console.info("numero Secreto:",this.nuevoJuego.gano);  
+    console.info("Gano?:",this.nuevoJuego.gano);  
+    return this.nuevoJuego.gano;
   }  
+
+
 
   MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
     this.Mensajes=mensaje;    
@@ -86,8 +98,10 @@ export class AdivinaElNumeroComponent implements OnInit {
      }, 3000);
     console.info("objeto",x);
   
-   }  
+  }  
+  
   ngOnInit() {
+  
   }
 
 }

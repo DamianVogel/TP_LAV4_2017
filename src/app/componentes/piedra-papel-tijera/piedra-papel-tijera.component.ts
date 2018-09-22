@@ -12,7 +12,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
   botonNuevoJuego : boolean;
   divEleccionUsuario : boolean;
   decisionOrdenador : string;
-
+  resultado: string;
 
   constructor() {
     this.botonNuevoJuego = true;
@@ -64,7 +64,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
   NuevoJuego(){
     this.botonNuevoJuego = false;  
     this.divEleccionUsuario = true;
-    
+    this.resultado = undefined;
   };
       
 
@@ -74,29 +74,29 @@ export class PiedraPapelTijeraComponent implements OnInit {
 
     
         if (this.eleccion == this.decisionOrdenador) {
-            return console.log("Empate, los dos eligieron " +this.eleccion);
-        } else {
+            this.resultado= "Empate, los dos eligieron " +this.eleccion;
+                  } else {
             if (this.eleccion == "piedra" && this.decisionOrdenador == "papel") {
-                console.log(""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.");
+              this.resultado= ""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.";
             } 
             if (this.eleccion == "piedra" && this.decisionOrdenador == "tijera") {
-                console.log(""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario");
+              this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario";
             } 
             if (this.eleccion == "papel" && this.decisionOrdenador == "tijera") { 
-                console.log(""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.");
+              this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.";
             }
             if (this.eleccion == "papel" && this.decisionOrdenador == "piedra"){
-                console.log(""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario");
+              this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario";
             }
             if (this.eleccion == "tijera" && this.decisionOrdenador == "piedra") {
-                console.log(""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.");
+              this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.";
                 }
             if (this.eleccion == "tijera" && this.decisionOrdenador == "papel") {
-                console.log(""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario");
+              this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario";
             }
         }
         
-        
+        console.log(this.resultado);
         this.botonNuevoJuego = true;
      
       }  
