@@ -41,6 +41,20 @@ export class JuegoDados extends Juego {
             
     }
 
+    TirarDadosIA(){
+        this.cantDadosTiradosIA++;
+
+        this.primerDadoIA = Math.floor((Math.random() * 6) + 1);
+        this.segundoDadoIA = Math.floor((Math.random()* 6) + 1);
+    
+        this.acumIA = this.acumIA + this.primerDadoIA+this.segundoDadoIA;
+        console.log("primer dado IA: "+this.primerDadoIA+" "
+                    +"segundo dado IA: "+this.segundoDadoIA+" "
+                    +"El acumulador va: "+this.acumIA+" "
+                    +"IA tiro: "+this.cantDadosTiradosIA
+                    +" veces");
+            
+    }
 
 
 
@@ -50,7 +64,7 @@ export class JuegoDados extends Juego {
 
     public verificar() {
     
-        if(this.acumUsuario<21 || this.cantDadosTiradosUsuario <3)
+        if(this.acumUsuario<21 && this.cantDadosTiradosUsuario <3)
             {
                 return true;    
             }
@@ -58,6 +72,24 @@ export class JuegoDados extends Juego {
             return false;       
     }
 
+    public verificarIA(){
+        
+        this.TirarDadosIA();
+
+        if((this.acumIA <21 && this.cantDadosTiradosIA < 3) && (this.acumIA <= this.acumUsuario))
+        {   
+            this.verificarIA();                            
+        } 
+        
+        if((this.acumIA <21 && this.cantDadosTiradosIA < 3) && (this.acumIA > this.acumUsuario)){            
+                return true;
+        }
+        else{    
+                return false;
+            }    
+        
+        
+    }
 
 
 }

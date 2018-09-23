@@ -9,32 +9,71 @@ import { JuegoDados } from '../../clases/juego-dados';
 export class JuegoDadosComponent implements OnInit {
 
   nuevoJuego: JuegoDados;
-  ocultarVerificar: Boolean;
   
-  tirarNuevamente: boolean;
+  //Variables de control de html
+  comenzar: Boolean;
+  tirarDados: boolean;
+  plantarse: boolean;
   
 
   constructor() {
     this.nuevoJuego = new JuegoDados();
-    this.tirarNuevamente = false;
+    this.comenzar = true;
+    //this.tirarDados = false;
+    
   }
 
   Comenzar(){
+    this.comenzar = false;
+
+    this.Desarrollo();
+
+    //this.tirarNuevamente = this.nuevoJuego.verificar();
+
+    /*
+    while(this.tirarNuevamente)
+    {
+      this.plantarse = true;
+    }
+   */
     
+  }
+
+  Desarrollo(){
     this.nuevoJuego.TirarDadosUsuario();
     
-    while(this.nuevoJuego.verificar())
-    {
-      this.tirarNuevamente = true;
+    if(this.nuevoJuego.verificar()){  
+      this.tirarDados= true;
+      this.plantarse = true;
     }
+    else{
+      this.tirarDados =  false;
+      this.plantarse =  false;
+      console.log("Perdiste, te pasaste");
+    }  
+   
     
-    this.tirarNuevamente = false;
-
-
-
-
+  
 
   }
+
+  Resolucion(){
+    this.tirarDados =  false;
+    this.plantarse =  false;     
+    
+
+    if(this.nuevoJuego.verificarIA())
+      {
+        console.log("Perdiste! Gano SkyNet");
+      }
+        else
+        {
+          console.log("Ganaste!")
+        }
+
+    this.constructor();
+  }
+
 
 
 

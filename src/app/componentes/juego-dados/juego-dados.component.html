@@ -11,9 +11,9 @@
 <form name="juego">
    
     
-    <h2 [hidden]="ocultarVerificar"><button   (click)="Comenzar()" class="btn btn-success btn-lg">Comenzar!</button></h2>
-    <h2 [hidden]="tirarNuevamente"><button   (click)="nuevoJuego.TirarDadosUsuario()" class="btn btn-success btn-lg">Tirar Nuevamente!</button></h2>
-
+    <h2 *ngIf="comenzar"><button   (click)="Comenzar()" class="btn btn-success btn-lg">Comenzar!</button></h2>
+    <h2 *ngIf="tirarDados"><button   (click)="Desarrollo()" class="btn btn-success btn-lg">Tirar Nuevamente!</button></h2>
+    <h2 *ngIf="plantarse"><button   (click)="Resolucion()" class="btn btn-success btn-lg">Plantarse!</button></h2>
 
 </form>
 
