@@ -33,6 +33,8 @@
     "ngh": "^0.2.12",
     "ngx": "^2.4.0",
     "ngx-bootstrap": "^1.9.3",
+    "primeicons": "^1.0.0-beta.10",
+    "primeng": "^6.1.4",
     "rxjs": "^6.3.2",
     "rxjs-compat": "^6.3.2",
     "web-animations-js": "^2.3.1",

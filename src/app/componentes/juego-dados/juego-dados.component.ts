@@ -10,14 +10,42 @@ export class JuegoDadosComponent implements OnInit {
 
   nuevoJuego: JuegoDados;
   ocultarVerificar: Boolean;
-    
+  
+  tirarNuevamente: boolean;
   
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    this.nuevoJuego = new JuegoDados();
+    this.tirarNuevamente = false;
   }
 
+  Comenzar(){
+    
+    this.nuevoJuego.TirarDadosUsuario();
+    
+    while(this.nuevoJuego.verificar())
+    {
+      this.tirarNuevamente = true;
+    }
+    
+    this.tirarNuevamente = false;
+
+
+
+
+
+  }
+
+
+
+  ngOnInit() {
+    
+  }
+
+  
+
+
+  
   public Mensajes(){}
 
 
