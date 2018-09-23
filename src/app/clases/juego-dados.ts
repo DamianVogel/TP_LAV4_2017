@@ -14,6 +14,9 @@ export class JuegoDados extends Juego {
     cantDadosTiradosUsuario:number;
     cantDadosTiradosIA:number;
 
+    estadoUsuario: string;
+    estadoIA: string;
+
     constructor()
     {
         super("Juego 21 con Dados")
@@ -64,10 +67,16 @@ export class JuegoDados extends Juego {
 
     public verificar() {
     
-        if(this.acumUsuario<21 && this.cantDadosTiradosUsuario <3)
+        if(this.acumUsuario<=21 && this.cantDadosTiradosUsuario <3)
             {
-                return true;    
-            }
+                this.estadoUsuario = "planto";  
+                return true;  
+            
+            }else if(this.acumUsuario>21 && this.cantDadosTiradosUsuario <=3)
+                    {
+                        this.estadoUsuario = "perdio";  
+                        return false;
+                    }   
 
             return false;       
     }
@@ -76,19 +85,34 @@ export class JuegoDados extends Juego {
         
         this.TirarDadosIA();
 
-        if((this.acumIA <21 && this.cantDadosTiradosIA < 3) && (this.acumIA <= this.acumUsuario))
-        {   
-            this.verificarIA();                            
-        } 
-        
-        if((this.acumIA <21 && this.cantDadosTiradosIA < 3) && (this.acumIA > this.acumUsuario)){            
-                return true;
+        if(this.estadoUsuario == "perdio")
+        {
+            this.estadoIA = "gano";
+            return true;
         }
-        else{    
-                return false;
-            }    
+
+
+        if((this.acumIA > this.acumUsuario) && (this.acumIA <=21 && this.cantDadosTiradosIA <= 3))
+        {   
+            this.estadoUsuario = "perdio"
+            this.estadoIA = "gano";
+            return true;                                                   
+        } 
+        else if((this.acumIA <= this.acumUsuario) && (this.acumIA < 21 && this.cantDadosTiradosIA < 3))    
+                {
+                    this.estadoIA = "jugando";
+                    this.verificarIA();
+                    
+                }            
+        else if((this.acumIA <= this.acumUsuario) && this.cantDadosTiradosIA >= 3)
+                {
+                    this.estadoUsuario = "gano"
+                    this.estadoIA = "perdio";
+                    return false;
+                }
         
-        
+                
+      //  return false;
     }
 
 

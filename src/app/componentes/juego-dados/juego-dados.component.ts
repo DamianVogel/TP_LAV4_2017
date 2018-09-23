@@ -27,16 +27,7 @@ export class JuegoDadosComponent implements OnInit {
     this.comenzar = false;
 
     this.Desarrollo();
-
-    //this.tirarNuevamente = this.nuevoJuego.verificar();
-
-    /*
-    while(this.tirarNuevamente)
-    {
-      this.plantarse = true;
-    }
-   */
-    
+      
   }
 
   Desarrollo(){
@@ -49,24 +40,23 @@ export class JuegoDadosComponent implements OnInit {
     else{
       this.tirarDados =  false;
       this.plantarse =  false;
-      console.log("Perdiste, te pasaste");
+      this.Resolucion();
     }  
-   
-    
-  
-
   }
 
   Resolucion(){
+    
+    
     this.tirarDados =  false;
     this.plantarse =  false;     
     
+    this.nuevoJuego.verificarIA();
 
-    if(this.nuevoJuego.verificarIA())
+    if(this.nuevoJuego.estadoIA == "gano")
       {
         console.log("Perdiste! Gano SkyNet");
       }
-        else
+        else if(this.nuevoJuego.estadoUsuario == "gano")
         {
           console.log("Ganaste!")
         }
