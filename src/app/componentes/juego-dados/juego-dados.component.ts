@@ -50,6 +50,7 @@ export class JuegoDadosComponent implements OnInit {
     this.tirarDados =  false;
     this.plantarse =  false;     
     
+    
     this.nuevoJuego.verificarIA();
 
     if(this.nuevoJuego.estadoIA == "gano")

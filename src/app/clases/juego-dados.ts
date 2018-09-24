@@ -1,4 +1,5 @@
 import { Juego } from '../clases/juego';
+import { SELECT_PANEL_INDENT_PADDING_X } from '@angular/material';
 
 export class JuegoDados extends Juego {
     
@@ -85,6 +86,7 @@ export class JuegoDados extends Juego {
         
         this.TirarDadosIA();
 
+       
         if(this.estadoUsuario == "perdio")
         {
             this.estadoIA = "gano";
