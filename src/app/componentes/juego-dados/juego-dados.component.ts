@@ -11,42 +11,58 @@ export class JuegoDadosComponent implements OnInit {
   nuevoJuego: JuegoDados;
   
   //Variables de control de html
-  comenzar: Boolean;
+  deNuevo: Boolean;
   tirarDados: boolean;
   plantarse: boolean;
+
+  estadoJugador: string;
   
 
   constructor() {
     this.nuevoJuego = new JuegoDados();
-    this.comenzar = true;
-    //this.tirarDados = false;
+    this.deNuevo = false
+    this.tirarDados = true;
     
   }
 
-  Comenzar(){
-    this.comenzar = false;
-
-    this.Desarrollo();
-      
-  }
+    
 
   Desarrollo(){
+    
+    
     this.nuevoJuego.TirarDadosUsuario();
     
-    /*Se debera controlar 3 estados:
-      -Continua
-          -Tira de nuevo.
-      
-      -Se planta (decision o se queda sin tiros)
-          -Aca debera llamar a jugar contra la IA.
-      
+    if(this.nuevoJuego.verificar() )
+    {
+        //Aca puede seguir tirando o se planta por decision.
+        console.log("puede seguir jugando");
+    }
+    else
+        {
+            switch(this.nuevoJuego.estadoUsuario)
+            {
+                    case "sinTiros":            
+            //      -Aca debera llamar a jugar contra la IA.
+                    this.tirarDados = false;
+                    this.Resolucion();
+                    
+                    break;
+
+                    case "perdio":
+                    this.PerdioUsuario();      
+                    break;
+              } 
+        }
+    
+    /*  
       -Pierde
           -Llama a la funcion que indica que el usuario pierde.   
     */
   }
 
   Resolucion(){
-      
+     
+    console.log(this.nuevoJuego.estadoUsuario);
     this.tirarDados =  false;
     this.plantarse =  false;     
     
@@ -55,8 +71,11 @@ export class JuegoDadosComponent implements OnInit {
   }
 
   PerdioUsuario(){
+    
     console.log("Perdio el usuario");
-
+    this.tirarDados = false;
+    this.deNuevo = true;
+    
   }
 
 

@@ -1,5 +1,5 @@
 import { Juego } from '../clases/juego';
-import { SELECT_PANEL_INDENT_PADDING_X } from '@angular/material';
+//import { SELECT_PANEL_INDENT_PADDING_X } from '@angular/material';
 
 export class JuegoDados extends Juego {
     
@@ -70,15 +70,26 @@ export class JuegoDados extends Juego {
     
         if(this.acumUsuario<=21 && this.cantDadosTiradosUsuario <3)
             {
-                  
-                return true;  
+                
+                this.estadoUsuario = "enCurso"
+                return true; 
+                //Puede seguir tirando. 
     
-            }else if(this.acumUsuario>21 && this.cantDadosTiradosUsuario <=3)
+            }else if(this.acumUsuario<=21 && this.cantDadosTiradosUsuario ==3)
                     {                          
+                        this.estadoUsuario = "sinTiros";
                         return false;
-                    }   
+                   
+                        //Se quedo sin tiros, pero no se paso.
+                    }
+            else if(this.acumUsuario>21 && this.cantDadosTiradosUsuario <=3) 
+                    {
+                        this.estadoUsuario = "perdio";
+                        return false;
+                        //Se paso, perdio.
+                    }
 
-            //return false;       
+               
     }
 
     public verificarIA(){
