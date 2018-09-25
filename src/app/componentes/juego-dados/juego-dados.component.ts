@@ -35,6 +35,7 @@ export class JuegoDadosComponent implements OnInit {
     if(this.nuevoJuego.verificar() )
     {
         //Aca puede seguir tirando o se planta por decision.
+        this.plantarse = true;
         console.log("puede seguir jugando");
     }
     else
@@ -62,17 +63,40 @@ export class JuegoDadosComponent implements OnInit {
 
   Resolucion(){
      
-    console.log(this.nuevoJuego.estadoUsuario);
-    this.tirarDados =  false;
-    this.plantarse =  false;     
-    
-    //aca juega la ia contra la resolucion del usuario
-    
-  }
+    if(this.nuevoJuego.verificarIA() )
+    {
+        //Aca gana SKYNET
+        this.PerdioUsuario();    
+    }
+    else
+        {
+            switch(this.nuevoJuego.estadoIA)
+            {
+                    case "sinTiros":            
+                    this.GanoUsuario();
+                    break;
+
+                    case "perdio":
+                    this.GanoUsuario();      
+                    break;
+            } 
+   
+          }
+    }
 
   PerdioUsuario(){
     
     console.log("Perdio el usuario");
+    this.plantarse = false;
+    this.tirarDados = false;
+    this.deNuevo = true;
+    
+  }
+
+  GanoUsuario(){
+    
+    console.log("Gano el usuario");
+    this.plantarse = false;
     this.tirarDados = false;
     this.deNuevo = true;
     

@@ -1,4 +1,5 @@
 import { Juego } from '../clases/juego';
+import { Version } from '@angular/compiler';
 //import { SELECT_PANEL_INDENT_PADDING_X } from '@angular/material';
 
 export class JuegoDados extends Juego {
@@ -94,9 +95,42 @@ export class JuegoDados extends Juego {
 
     public verificarIA(){
         
-        this.TirarDadosIA();
+       this.TirarDadosIA();
 
+
+            if(this.acumIA<21 && this.cantDadosTiradosIA <3 && (this.acumIA <= this.acumUsuario) )
+            {
                 
+                console.log("entro aca");
+                this.verificarIA();
+                //return true; 
+                //Puede seguir tirando. 
+
+            }else if(this.acumIA<=21 && this.cantDadosTiradosIA ==3 && (this.acumIA <= this.acumUsuario))
+                    {                          
+                        this.estadoIA = "sinTiros";
+                        return false;
+                    
+                        //Se quedo sin tiros y es menor al usuario
+                    }
+            else if(this.acumIA>21 && this.cantDadosTiradosIA ==3)
+                    {                          
+                        this.estadoIA = "IA perdio";
+                        return false;
+                    
+                        //Se quedo sin tiros y es menor al usuario
+                    }
+            else if(this.acumIA<=21 && this.cantDadosTiradosIA <=3 && (this.acumIA > this.acumUsuario) )
+                    {
+                        this.estadoIA = "IA gano";
+                        return true;
+                        //Se paso, perdio.
+                    }
+
+
+
+
+
       
     }
 
