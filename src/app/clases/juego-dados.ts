@@ -70,51 +70,23 @@ export class JuegoDados extends Juego {
     
         if(this.acumUsuario<=21 && this.cantDadosTiradosUsuario <3)
             {
-                this.estadoUsuario = "planto";  
+                  
                 return true;  
-            
+    
             }else if(this.acumUsuario>21 && this.cantDadosTiradosUsuario <=3)
-                    {
-                        this.estadoUsuario = "perdio";  
+                    {                          
                         return false;
                     }   
 
-            return false;       
+            //return false;       
     }
 
     public verificarIA(){
         
         this.TirarDadosIA();
 
-       
-        if(this.estadoUsuario == "perdio")
-        {
-            this.estadoIA = "gano";
-            return true;
-        }
-
-
-        if((this.acumIA > this.acumUsuario) && (this.acumIA <=21 && this.cantDadosTiradosIA <= 3))
-        {   
-            this.estadoUsuario = "perdio"
-            this.estadoIA = "gano";
-            return true;                                                   
-        } 
-        else if((this.acumIA <= this.acumUsuario) && (this.acumIA < 21 && this.cantDadosTiradosIA < 3))    
-                {
-                    this.estadoIA = "jugando";
-                    this.verificarIA();
-                    
-                }            
-        else if((this.acumIA <= this.acumUsuario) && this.cantDadosTiradosIA >= 3)
-                {
-                    this.estadoUsuario = "gano"
-                    this.estadoIA = "perdio";
-                    return false;
-                }
-        
                 
-      //  return false;
+      
     }
 
 

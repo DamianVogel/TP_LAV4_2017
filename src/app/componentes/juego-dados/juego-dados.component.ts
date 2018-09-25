@@ -33,39 +33,31 @@ export class JuegoDadosComponent implements OnInit {
   Desarrollo(){
     this.nuevoJuego.TirarDadosUsuario();
     
-    if(this.nuevoJuego.verificar()){  
-      this.tirarDados= true;
-      this.plantarse = true;
-    }
-    else{
-      this.tirarDados =  false;
-      this.plantarse =  false;
-      this.Resolucion();
-    }  
+    /*Se debera controlar 3 estados:
+      -Continua
+          -Tira de nuevo.
+      
+      -Se planta (decision o se queda sin tiros)
+          -Aca debera llamar a jugar contra la IA.
+      
+      -Pierde
+          -Llama a la funcion que indica que el usuario pierde.   
+    */
   }
 
   Resolucion(){
-    
-    
+      
     this.tirarDados =  false;
     this.plantarse =  false;     
     
+    //aca juega la ia contra la resolucion del usuario
     
-    this.nuevoJuego.verificarIA();
-
-    if(this.nuevoJuego.estadoIA == "gano")
-      {
-        console.log("Perdiste! Gano SkyNet");
-      }
-        else if(this.nuevoJuego.estadoUsuario == "gano")
-        {
-          console.log("Ganaste!")
-        }
-
-    this.constructor();
   }
 
+  PerdioUsuario(){
+    console.log("Perdio el usuario");
 
+  }
 
 
   ngOnInit() {
