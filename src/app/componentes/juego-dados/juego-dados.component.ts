@@ -76,7 +76,7 @@ export class JuegoDadosComponent implements OnInit {
                     this.GanoUsuario();
                     break;
 
-                    case "perdio":
+                    case "IA perdio":
                     this.GanoUsuario();      
                     break;
             } 

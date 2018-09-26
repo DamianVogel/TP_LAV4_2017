@@ -124,7 +124,7 @@ export class JuegoDados extends Juego {
                     {
                         this.estadoIA = "IA gano";
                         return true;
-                        //Se paso, perdio.
+                        
                     }
 
 
