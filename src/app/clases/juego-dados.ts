@@ -97,41 +97,23 @@ export class JuegoDados extends Juego {
         
        this.TirarDadosIA();
 
-
             if(this.acumIA<21 && this.cantDadosTiradosIA <3 && (this.acumIA <= this.acumUsuario) )
-            {
-                
-                console.log("entro aca");
+            {                
                 this.verificarIA();
-                //return true; 
-                //Puede seguir tirando. 
 
             }else if(this.acumIA<=21 && this.cantDadosTiradosIA ==3 && (this.acumIA <= this.acumUsuario))
                     {                          
-                        this.estadoIA = "sinTiros";
-                        return false;
-                    
-                        //Se quedo sin tiros y es menor al usuario
+                        this.estadoIA = "sinTiros";                        
                     }
             else if(this.acumIA>21 && this.cantDadosTiradosIA ==3)
                     {                          
-                        this.estadoIA = "IA perdio";
-                        return false;
-                    
-                        //Se quedo sin tiros y es menor al usuario
+                        this.estadoIA = "IA perdio";                        
                     }
             else if(this.acumIA<=21 && this.cantDadosTiradosIA <=3 && (this.acumIA > this.acumUsuario) )
                     {
-                        this.estadoIA = "IA gano";
-                        return true;
-                        
+                        this.estadoIA = "IA gano";                        
+                        return true;                        
                     }
-
-
-
-
-
-      
     }
 
 

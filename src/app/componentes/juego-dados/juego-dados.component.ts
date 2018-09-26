@@ -63,15 +63,14 @@ export class JuegoDadosComponent implements OnInit {
 
   Resolucion(){
      
-    if(this.nuevoJuego.verificarIA() )
-    {
-        //Aca gana SKYNET
-        this.PerdioUsuario();    
-    }
-    else
-        {
+    this.nuevoJuego.verificarIA();
+   
             switch(this.nuevoJuego.estadoIA)
             {
+                    case "IA gano":
+                    this.PerdioUsuario();
+                    break;
+              
                     case "sinTiros":            
                     this.GanoUsuario();
                     break;
@@ -81,7 +80,7 @@ export class JuegoDadosComponent implements OnInit {
                     break;
             } 
    
-          }
+          
     }
 
   PerdioUsuario(){
