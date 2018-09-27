@@ -19,6 +19,8 @@ export class JuegoDados extends Juego {
     estadoUsuario: string;
     estadoIA: string;
 
+    repetidor: any;
+
     constructor()
     {
         super("Juego 21 con Dados")
@@ -94,11 +96,13 @@ export class JuegoDados extends Juego {
     }
 
     public verificarIA(){
-        
-       this.TirarDadosIA();
+       // this.repetidor = setTimeout(()=>{
+
+            this.TirarDadosIA();
 
             if(this.acumIA<21 && this.cantDadosTiradosIA <3 && (this.acumIA <= this.acumUsuario) )
             {                
+               
                 this.verificarIA();
 
             }else if(this.acumIA<=21 && this.cantDadosTiradosIA ==3 && (this.acumIA <= this.acumUsuario))
@@ -108,13 +112,23 @@ export class JuegoDados extends Juego {
             else if(this.acumIA>21 && this.cantDadosTiradosIA ==3)
                     {                          
                         this.estadoIA = "IA perdio";                        
+                        
                     }
             else if(this.acumIA<=21 && this.cantDadosTiradosIA <=3 && (this.acumIA > this.acumUsuario) )
                     {
                         this.estadoIA = "IA gano";                        
                         return true;                        
-                    }
+                    };   
+          
+              //      clearTimeout(this.repetidor);
+
+           //     },900);         
+       
+        
     }
+
+
+
 
 
 }

@@ -40,6 +40,8 @@ body {
   color: #848484;
   font-weight: 300;
   overflow-x: hidden;
+  justify-content: center;
+  align-items: center;
 }
 body.fh5co-offcanvas {
   overflow: hidden;

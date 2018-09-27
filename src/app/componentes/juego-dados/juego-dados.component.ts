@@ -17,6 +17,8 @@ export class JuegoDadosComponent implements OnInit {
 
   estadoJugador: string;
   
+  Mensajes: string;
+
 
   constructor() {
     this.nuevoJuego = new JuegoDados();
@@ -63,6 +65,8 @@ export class JuegoDadosComponent implements OnInit {
 
   Resolucion(){
      
+    
+    
     this.nuevoJuego.verificarIA();
    
             switch(this.nuevoJuego.estadoIA)
@@ -79,13 +83,18 @@ export class JuegoDadosComponent implements OnInit {
                     this.GanoUsuario();      
                     break;
             } 
-   
+          
           
     }
 
   PerdioUsuario(){
     
-    console.log("Perdio el usuario");
+    //console.log("Perdio el usuario");
+    this.MostarMensaje("Perdiste", false);
+
+
+
+    
     this.plantarse = false;
     this.tirarDados = false;
     this.deNuevo = true;
@@ -94,7 +103,8 @@ export class JuegoDadosComponent implements OnInit {
 
   GanoUsuario(){
     
-    console.log("Gano el usuario");
+    //console.log("Gano el usuario");
+    this.MostarMensaje("Ganaste",true);
     this.plantarse = false;
     this.tirarDados = false;
     this.deNuevo = true;
@@ -107,12 +117,24 @@ export class JuegoDadosComponent implements OnInit {
   }
 
   
-
-
+  MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
+   // this.tirarDados = false;
+    this.Mensajes=mensaje;    
+    var x = document.getElementById("snackbar");
+    if(ganador)
+      {
+        x.className = "show Ganador";
+      }else{
+        x.className = "show Perdedor";
+      }
+    var modelo=this;
+    setTimeout(function(){ 
+      x.className = x.className.replace("show", "");
+     // this.tirarDados = true;
+      //this.deNuevo = false;
+     }, 3000);
+    //console.info("objeto",x);
   
-  public Mensajes(){}
-
-
-
+  }  
 
 }
