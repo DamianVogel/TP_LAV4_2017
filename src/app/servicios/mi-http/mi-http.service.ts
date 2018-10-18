@@ -1,5 +1,6 @@
 import { log } from 'util';
 import { Injectable } from '@angular/core';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Http, Response } from '@angular/http';
 
@@ -10,6 +11,9 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class MiHttpService {
+
+
+  api="http://localhost/Programacion-3-2017/TP_ESTACIONAMIENTO_DV/";
 
   constructor( public http: Http ) { }
 
@@ -31,6 +35,18 @@ export class MiHttpService {
       return data;
     });
   }
+
+  public httpPost(metodo:string, objeto:any)
+  {
+    console.log("en http post" +objeto)
+    return this.http.post(this.api + metodo, objeto
+                          
+                          //,this.httpOptions  
+                        )
+    .pipe(catchError(this.handleError));
+  }
+
+
 
   public httpGetO ( url: string): Observable<Response>
   {

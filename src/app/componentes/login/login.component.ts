@@ -3,6 +3,11 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
+import {LoginService} from '../../servicios/login.service';
+import {Usuario} from '../../clases/usuario';
+
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,25 +22,78 @@ export class LoginComponent implements OnInit {
   progresoMensaje="esperando..."; 
   logeando=true;
   ProgresoDeAncho:string;
+  datosToken: any;
+
 
   clase="progress-bar progress-bar-info progress-bar-striped ";
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private _servicio:LoginService
+    
+    ) {
       this.progreso=0;
       this.ProgresoDeAncho="0%";
-
+     
   }
 
   ngOnInit() {
   }
 
+  /*
   Entrar() {
+
+    
     if (this.usuario === 'admin' && this.clave === 'admin') {
       this.router.navigate(['/Principal']);
     }
+  
+
   }
+  */
+  Entrar(){
+    
+    //let loginDatos = new Array({'nombre':'LEANDRO'},{'password':'1234'});
+    
+    var loginDatos = new Usuario('LEANDRO','1234');
+
+
+    console.log(loginDatos);
+
+    this._servicio.ServiceLogin(loginDatos).subscribe(data =>{
+      
+      this.datosToken = JSON.parse(data._body);
+      
+     console.log(this.datosToken);     
+      
+            if ( this.datosToken.token )
+              {
+                //console.log(this.datosToken.token);
+                localStorage.setItem('token', this.datosToken.token);
+                this.router.navigateByUrl("/Principal");
+              }
+            
+      /*        
+      const helper = new JwtHelperService();
+  
+      const decodedToken = helper.decodeToken(this.datosToken.token);
+      const expirationDate = helper.getTokenExpirationDate(this.datosToken.token);
+      const isExpired = helper.isTokenExpired(this.datosToken.token);
+  
+      console.log(decodedToken);
+      console.log(expirationDate);
+      console.log(isExpired);
+      */
+    
+    
+    });
+      
+    
+  
+  }
+  
+  
   MoverBarraDeProgreso() {
     
     this.logeando=false;
