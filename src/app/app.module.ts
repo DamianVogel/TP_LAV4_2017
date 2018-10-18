@@ -25,6 +25,8 @@ import { AdivinaMasListadoComponent } from './componentes/adivina-mas-listado/ad
 import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/agilidad-mas-listado.component';
 import { RuteandoModule } from './ruteando/ruteando.module';
 import { ListadoComponent } from './componentes/listado/listado.component';
+import { VerificarJWTService } from '../app/servicios/verificar-jwt.service';
+import { AuthService } from '../app/servicios/auth.service';
 // declaro donde quiero que se dirija
 
 
@@ -103,7 +105,14 @@ import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/pi
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [  JuegoServiceService, 
+                MiHttpService,
+                PaisesService,
+                ArchivosJugadoresService,
+                JugadoresService,
+                VerificarJWTService,
+                AuthService
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

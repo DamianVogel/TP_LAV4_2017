@@ -25,6 +25,8 @@ import { ErrorPruebaComponent } from '../componentes/error-prueba/error-prueba.c
 import { JuegoDadosComponent } from '../componentes/juego-dados/juego-dados.component';
 import { JuegoServiceService } from '../servicios/juego-service.service';
 import { PiedraPapelTijeraComponent } from '../componentes/piedra-papel-tijera/piedra-papel-tijera.component';
+import { VerificarJWTService } from '../servicios/verificar-jwt.service';
+
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
@@ -35,7 +37,7 @@ const MiRuteo = [
   {path: 'Mapa' , component: MapaDeGoogleComponent},
   {path: 'QuienSoy' , component: QuienSoyComponent},
   {path: 'Registro' , component: RegistroComponent},
-  {path: 'Principal' , component: PrincipalComponent},
+  {path: 'Principal' , component: PrincipalComponent, canActivate: [VerificarJWTService]},
   {path: 'Listado' , component: ListadoComponent},
   {path: 'Paises' , component: ListadoDePaisesComponent},
   {path: 'Juegos' ,component: JuegosComponent,
