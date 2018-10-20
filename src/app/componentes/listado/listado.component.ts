@@ -25,10 +25,12 @@ export class ListadoComponent implements OnInit {
     this.listadoParaCompartir= this.miServicioJuego.listar();
   }
 
+  /* para corregir
   llamaServicePromesa(){
     console.log("llamaServicePromesa");
     this.miServicioJuego.listarPromesa().then((listado) => {
         this.listadoParaCompartir = listado;
     });
   }
+  */
 }

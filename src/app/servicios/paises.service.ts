@@ -7,7 +7,11 @@ export class PaisesService {
 
 
   public listar():Promise<Array<any>> {
-       return   this.miHttp.httpGetP("https://restcountries.eu/rest/v2/all")
+    let promesa;
+    
+    return   promesa;
+        /*
+       this.miHttp.httpGetP("https://restcountries.eu/rest/v2/all")
           .then( data => {
             console.log( data );
             return data;
@@ -18,4 +22,8 @@ export class PaisesService {
           });
           //return null;
     }
+    */
+  }
+
+
 }

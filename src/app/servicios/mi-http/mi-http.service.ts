@@ -17,6 +17,48 @@ export class MiHttpService {
 
   constructor( public http: Http ) { }
 
+  public httpGet(metodo:string, objeto:any):Observable<any>{
+  
+
+    return this.http
+    .get(this.api + metodo)
+    .pipe(tap(data => {return this.extraerDatos(data)}));
+    
+  }
+
+ 
+  public httpPost(metodo:string, objeto:any)
+  {
+    
+    //var array = new Array(objeto,this.token);
+
+    //console.log(array);
+
+    return this.http.post(this.api + metodo, objeto
+                          
+                          //,this.httpOptions  
+                        )
+    .pipe(catchError(this.handleError));
+  }
+
+  
+  private extraerDatos(resp:Response) {
+
+      return resp.json() || {};
+
+  }
+  private handleError(error:Response | any) {
+
+      return error;
+  }
+
+
+
+
+
+
+
+  /*
   public httpGetP ( url: string)
   {
     console.log(this.api+url);
@@ -67,4 +109,6 @@ export class MiHttpService {
   {
     return error;
   }
+
+  */
 }

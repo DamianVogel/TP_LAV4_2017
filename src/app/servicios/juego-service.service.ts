@@ -2,20 +2,60 @@ import { Injectable } from '@angular/core';
 import { Juego } from '../clases/Juego';
 import { JuegoAdivina } from '../clases/juego-adivina';
 import { MiHttpService } from './mi-http/mi-http.service'; 
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class JuegoServiceService {
 
   peticion:any;
+  
   constructor( public miHttp: MiHttpService ) {
-    //this.peticion = this.miHttp.httpGetO("http://localhost:3003");
-//    this.peticion = this.miHttp.httpGetO("https://restcountries.eu/rest/v2/all");
+    
+    this.miHttp.httpGet("traertodosjugadores", {}).subscribe(data => { this.peticion = JSON.parse(data._body);});
+   
   }
 
+ 
+
+  public listar():Array<Juego>  {
+     
+      //console.log(this.peticion);
+      
+      let miArray: Array<Juego> = new Array<Juego>();
+
+      for (let entry of this.peticion) {
+        
+        //console.log(entry); 
+          
+          switch(entry.Juego){
+            case 'JuegoAdivina':
+              miArray.push(new JuegoAdivina(undefined,entry.Gano,entry.Jugador));
+              break;
+          
+          
+          
+          }
+            
+          
+    
+      }
+  
+      return miArray;
+  
+    }
+
+
+
+ 
+ 
+  /*
   public listar(): Array<Juego> {
-   this.miHttp.httpGetP("traertodosjugadores")
-    .then( data => {
+    
+    this.miHttp.httpGetP("traertodosjugadores")
+   
+   .then( data => {
       console.log( data );
+      
     })
     .catch( err => {
       console.log( err );
@@ -26,10 +66,12 @@ export class JuegoServiceService {
     .subscribe( data => {
       console.log("En listar");
       console.log( data );
+      
+    
     }, err => {
       console.info("error: " ,err );
     })
-
+    
     let miArray: Array<Juego> = new Array<Juego>();
 
     miArray.push(new JuegoAdivina("Juego 1", false));
@@ -38,7 +80,9 @@ export class JuegoServiceService {
     miArray.push(new JuegoAdivina("Juego 4", false));
     miArray.push(new JuegoAdivina("Juego 5", false));
     miArray.push(new JuegoAdivina("Juego 6", false));
+   
     return miArray;
+    
   }
 
 
@@ -66,5 +110,5 @@ export class JuegoServiceService {
 
     return promesa;
   }
-
+  */
 }
