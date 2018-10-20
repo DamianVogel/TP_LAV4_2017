@@ -9,6 +9,28 @@
   <strong><p>No leer lo anterior, es solo un ejemplo sacado de https://www.argentina.gob.ar/terminos-y-condiciones </p></strong>
   <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Acepto</button>
   <button  class="cancelbtn"  routerLink="/Principal" style="width:auto;">No acepto</button>
+  
+  <div id="id01" class="modal">
+    <form  [formGroup]="registroForm" class="modal-content animate" (ngSubmit)="Registrar()" >
+      <div class="container">
+        <label><b>Email</b></label>
+        <input type="text" placeholder="Ingresa tu correo" name="email" [formControl]="email" required>
+  
+        <label><b>Clave</b></label>
+        <input type="password" placeholder="Aca la clave" name="psw"  [formControl]="clave  " required>
+  
+        <label><b>Repita la clave</b></label>
+        <input type="password" placeholder="Aca repeti la misma clave  de arriba"  [formControl]="copiaClave" name="psw-repeat" required>
+        <div>
+         
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Me arrepenti</button>
+          <button type="submit" class="signupbtn" [disabled]="!registroForm.valid">Registrarme</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <!--
   <div id="id01" class="modal">
     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
     <form class="modal-content animate" >
@@ -31,7 +53,9 @@
       </div>
     </form>
   </div>
-  
+  -->
+
+
   <script>
   // Get the modal
   var modal = document.getElementById('id01');

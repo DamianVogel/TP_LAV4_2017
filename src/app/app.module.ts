@@ -62,6 +62,7 @@ import { ErrorPruebaComponent } from './componentes/error-prueba/error-prueba.co
 import { JuegoDadosComponent } from './componentes/juego-dados/juego-dados.component';
 import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     PiedraPapelTijeraComponent,
     TatetiComponent
     
+    
   ],
   imports: [
     BrowserModule,
@@ -102,7 +104,8 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })
+    }),
+    ReactiveFormsModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
@@ -113,7 +116,8 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
                 ArchivosJugadoresService,
                 JugadoresService,
                 VerificarJWTService,
-                AuthService
+                AuthService,
+                RegistroService
               ],
   bootstrap: [AppComponent]
 })
