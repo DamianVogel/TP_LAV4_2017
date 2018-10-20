@@ -21,7 +21,7 @@ export class ListadoComponent implements OnInit {
   }
 
   TraerTodosLosJugadores(){
-    console.log("llamaService");
+    //console.log("llamaService");
     this.listadoParaCompartir= this.miServicioJuego.listar();
   }
 

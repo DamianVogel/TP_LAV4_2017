@@ -11,7 +11,7 @@ export class JuegoServiceService {
   
   constructor( public miHttp: MiHttpService ) {
     
-    this.miHttp.httpGet("traertodosjugadores", {}).subscribe(data => { this.peticion = JSON.parse(data._body);});
+    this.miHttp.httpGet("traerpartidas", {}).subscribe(data => { this.peticion = JSON.parse(data._body);});
    
   }
 

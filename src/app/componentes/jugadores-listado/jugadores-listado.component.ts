@@ -23,13 +23,14 @@ export class JugadoresListadoComponent implements OnInit {
 
   TraerTodos(){
     //alert("totos");
-    /*
-    this.miJugadoresServicio.traertodos('jugadores/','todos').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
     
+    this.miJugadoresServicio.traertodos('traerpartidas','todos').then(data=>{
+      //console.info("jugadores listado",(data));
+      //this.listado= data;
+      this.listado = JSON.parse(data._body)
+
     })
-    */
+    
   }
   TraerGanadores(){
     /*

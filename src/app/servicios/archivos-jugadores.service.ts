@@ -4,26 +4,26 @@ import { MiHttpService } from './mi-http/mi-http.service';
 @Injectable()
 export class ArchivosJugadoresService {
 
-  api="http://localhost:8080/jugadoresarchivo/apirestjugadores/";
+  
   peticion:any;
   constructor( public miHttp: MiHttpService ) {
-    
+    //this.miHttp.httpGet("traerpartidas", {}).subscribe(data => { this.peticion = JSON.parse(data._body);});
   }
 
 
   public   traerJugadores(ruta) {
     
-    /*
-    return this.miHttp.httpGetp(this.api+ruta)
+    
+    return this.miHttp.httpGet(ruta,'')
     .toPromise()
     .then( data => {
       console.log("Archivo jugadores");
-     // console.log( data );
+     console.log( data );
       return data;
     }, err => {
       console.log( err );
     })
-    */
+    
 
   
   }

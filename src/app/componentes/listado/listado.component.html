@@ -1,15 +1,15 @@
 
-<!--input type="button" (click)="llamaService()" class="btn btn-info" value="Pulsame" > 
-<input type="button" (click)="llamaServicePromesa()" class="btn btn-info" value="Pulsame Promesa" --> 
+<input type="button" (click)="TraerTodosLosJugadores()" class="btn btn-info" value="Todos los Jugadores" > 
+<input type="button" (click)="llamaServicePromesa()" class="btn btn-info" value="Pulsame Promesa"> 
 
-<!-- Centered Pills -->
-<ul class="nav nav-pills nav-justified">
+<!-- Centered Pills 
+<ul class="nav nav-pills nav-justified" id="lista-3">
     <li class="active"><a routerLink="/Principal">Sala de Juegos</a></li>
     <li><a (click)="TraerTodosLosJugadores()">Traer Todos los Jugadores</a></li>
     <li><a (click)="llamaServicePromesa()">Serv Promesa</a></li>
     <li><a (click)="llamaServicePromesa()">Serv observable</a></li>
   </ul>
-
+-->
 <app-listado-de-resultados [listado]="listadoParaCompartir"  > </app-listado-de-resultados>
 
 
