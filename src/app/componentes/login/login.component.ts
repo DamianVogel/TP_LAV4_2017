@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     
     //let loginDatos = new Array({'nombre':'LEANDRO'},{'password':'1234'});
     
-    var loginDatos = new Usuario('LEANDRO','1234');
+    var loginDatos = new Usuario(this.usuario, this.clave);
 
 
     console.log(loginDatos);
