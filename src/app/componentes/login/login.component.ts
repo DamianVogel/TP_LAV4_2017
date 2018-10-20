@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
       
      console.log(this.datosToken);     
       
-            if ( this.datosToken.token )
+            if ( this.datosToken.token != '' )
               {
                 //console.log(this.datosToken.token);
                 localStorage.setItem('token', this.datosToken.token);

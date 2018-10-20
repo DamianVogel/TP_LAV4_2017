@@ -61,6 +61,7 @@ import { LoginPruebaComponent } from './componentes/login-prueba/login-prueba.co
 import { ErrorPruebaComponent } from './componentes/error-prueba/error-prueba.component';
 import { JuegoDadosComponent } from './componentes/juego-dados/juego-dados.component';
 import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
+import { TatetiComponent } from './componentes/tateti/tateti.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/pi
     LoginPruebaComponent,
     ErrorPruebaComponent,
     JuegoDadosComponent,
-    PiedraPapelTijeraComponent
+    PiedraPapelTijeraComponent,
+    TatetiComponent
     
   ],
   imports: [

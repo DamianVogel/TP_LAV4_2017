@@ -26,6 +26,9 @@ import { JuegoDadosComponent } from '../componentes/juego-dados/juego-dados.comp
 import { JuegoServiceService } from '../servicios/juego-service.service';
 import { PiedraPapelTijeraComponent } from '../componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 import { VerificarJWTService } from '../servicios/verificar-jwt.service';
+import { Tateti } from '../clases/tateti';
+import { TatetiComponent} from '../componentes/tateti/tateti.component';
+import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 
 
 // declaro donde quiero que se dirija
@@ -48,7 +51,9 @@ const MiRuteo = [
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
       {path: 'Dados' , component: JuegoDadosComponent},
-      {path: 'PPT' , component: PiedraPapelTijeraComponent}
+      {path: 'PPT' , component: PiedraPapelTijeraComponent},
+      {path: 'Tateti' , component: TatetiComponent},
+      {path: 'Anagrama' , component: AnagramaComponent}
     ]},
   {path: '**' , component: ErrorComponent},
   {path: 'error' , component: ErrorComponent}

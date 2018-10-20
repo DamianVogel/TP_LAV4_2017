@@ -1,3 +1,33 @@
-<p>
-  anagrama works!
-</p>
+<form name="juego" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+  <div class="centro">
+      <div align="center" class="titulo" style="color: brown">
+          <h4>Presione Generar</h4>
+          </div>
+    <h3 [hidden]="ocultarVerificar" style="color:black">{{miJuego.desordenada}}</h3>
+    <h3 [hidden]="!ocultarVerificar" style="color:black">{{miJuego.palabra}}</h3>
+    <h3 [hidden]="ocultarVerificar" style="color:black">{{miJuego.pista}}</h3>
+
+    <input *ngIf="ocultarVerificar==false" type="text" [(ngModel)]="miJuego.respuesta" [ngModelOptions]="{standalone: true}" placeholder="Ingrese respuesta" >
+    <h3></h3>
+
+
+    <button [hidden]="!ocultarVerificar" class="btn btn-info btn-lg" (click)="GenerarNuevo()">Generar Palabra</button>
+    <br>
+    <h2><button [hidden]="ocultarVerificar" (click)="Verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button></h2>
+   
+
+    <h5  [hidden]="miJuego.respuesta" >
+    <p *ngIf="ocultarVerificar==false">
+    <i class="fa fa-spinner fa-spin"></i>
+    Ingrese palabra 
+    <i class="fa fa-spinner fa-spin"></i>
+    </p>
+    </h5>
+    <h3 *ngIf="miJuego.gano">¡Usted adivino la palabra!  </h3>
+    <h5 *ngIf="ocultarVerificar==false" >
+    <h3  *ngIf="!miJuego.gano" >Usted aún no gano, reintente. </h3>
+    </h5>
+
+</div>
+</form>
+<div id="snackbar">{{Mensajes}}</div>
