@@ -1,24 +1,21 @@
 import { Injectable } from '@angular/core';
+import { MiHttpService} from '../servicios/mi-http/mi-http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistroService {
 
-  constructor(public miHttp: MiHttpService) { }
+  constructor(public _generico: MiHttpService) { }
 
 
 
   public Registro(datos){
-    //console.log("entro Registro" + datos.email);
-    
+    console.log(datos);
 
-
-    /*
-    //CAMBIAR
-    return this._generico.httpPost("validarusuario",datos)
+    return this._generico.httpPost("altaUsuarioJuegos",datos)
         .pipe(data =>{return data;}); 
-    */
+    
   }
   
 

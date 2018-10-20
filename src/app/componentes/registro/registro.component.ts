@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Usuario } from '../../clases/usuario';
+import { RegistroService} from '../../servicios/registro.service';
 
 
 
@@ -56,14 +57,15 @@ export class RegistroComponent implements OnInit {
   Registrar(){
     
     var usuario = new Usuario(this.registroForm.get('email').value, this.registroForm.get('clave').value);
-    console.log(usuario);
+   // console.log(usuario);
     
-    //this._registro.Registro(usuario)
-    //.subscribe(data =>{})
-    //;
+    this._registro.Registro(usuario)
+    .subscribe(data =>{
+      //alert(data._body);
+    });
 
     alert("Usuario Registrado");
-    console.log(this.registroForm.get('email').value); 
+    //console.log(this.registroForm.get('email').value); 
     
   }
 

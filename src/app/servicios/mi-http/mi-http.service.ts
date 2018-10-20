@@ -32,7 +32,7 @@ export class MiHttpService {
     
     //var array = new Array(objeto,this.token);
 
-    //console.log(array);
+    console.log(metodo,objeto);
 
     return this.http.post(this.api + metodo, objeto
                           

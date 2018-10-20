@@ -27,6 +27,7 @@ import { RuteandoModule } from './ruteando/ruteando.module';
 import { ListadoComponent } from './componentes/listado/listado.component';
 import { VerificarJWTService } from '../app/servicios/verificar-jwt.service';
 import { AuthService } from '../app/servicios/auth.service';
+import { RegistroService } from '../app/servicios/registro.service';
 // declaro donde quiero que se dirija
 
 
