@@ -11,8 +11,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 @Injectable()
 export class MiHttpService {
   
-  
-  api="http://localhost/Programacion-3-2017/TP_ESTACIONAMIENTO_DV/";
+  //no usar no anda!
+  //api="http://localhost/Programacion-3-2017/TP_ESTACIONAMIENTO_DV/";
   
   
   constructor(public http:Http) { }
@@ -27,6 +27,7 @@ export class MiHttpService {
     .catch(this.handleError);
   }
 
+  /*
   public httpPost(metodo:string, objeto:any)
   {
         
@@ -38,7 +39,7 @@ export class MiHttpService {
     .pipe(catchError(this.handleError));
   }
 
-
+*/
 
 
 

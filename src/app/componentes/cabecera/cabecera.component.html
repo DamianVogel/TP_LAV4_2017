@@ -3,76 +3,46 @@
     
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" routerLink="/Principal">Sala De Juegos</a>
+     
+      
+      
     </div>
    
    
     <div class="nav-header">
-      <a href="/" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-      <h1 id="fh5co-logo"><a routerLink="/Principal">TP DV LAB 4 2018</a></h1>
-     
+      <i>
+      <h1 class="js-fh5co-nav-toggle fh5co-nav-toggle" id="fh5co-logo">TP DV LAB 4 2018</h1>
+      </i>
       <nav id="fh5co-menu-wrap" role="navigation">
         <ul class="sf-menu" id="menu principal" style="touch-action: pan-y;">
+          
           <li>
-            <a routerLink="/Principal">Home</a>
+              <a (click)="Navegar('Principal')"  class="color-1">Principal</a>
           </li>
-          <!--
           <li>
-            <a href="portfolio.html" class="fh5co-sub-ddown sf-with-ul">Projects</a>
-            <ul class="fh5co-sub-menu" style="display: none;">
-            
-              <li><a href="http://freehtml5.co/preview/?item=build-free-html5-bootstrap-template" target="_blank">Build</a></li>
-              <li><a href="http://freehtml5.co/preview/?item=work-free-html5-template-bootstrap" target="_blank">Work</a></li>
-              <li><a href="http://freehtml5.co/preview/?item=light-free-html5-template-bootstrap" target="_blank">Light</a></li>
-              <li><a href="http://freehtml5.co/preview/?item=relic-free-html5-template-using-bootstrap" target="_blank">Relic</a></li>
-              <li><a href="http://freehtml5.co/preview/?item=display-free-html5-template-using-bootstrap" target="_blank">Display</a></li>
-              <li><a href="http://freehtml5.co/preview/?item=sprint-free-html5-template-bootstrap" target="_blank">Sprint</a></li>
-            </ul>
-          </li>
-          -->
-         
+              <a (click)="Navegar('QuienSoy')"  class="color-1">Quién Soy?</a>
+          </li>          
           <li>
-            <a href="services.html" class="fh5co-sub-ddown sf-with-ul">Services</a>
-             <ul class="fh5co-sub-menu" style="display: none;">
-               <li><a href="left-sidebar.html">Web Development</a></li>
-               <li><a href="right-sidebar.html">Branding &amp; Identity</a></li>
-              <li>
-                <a href="#" class="fh5co-sub-ddown sf-with-ul">Free HTML5</a>
-                <ul class="fh5co-sub-menu" style="display: none;">
-                  <li><a href="http://freehtml5.co/preview/?item=build-free-html5-bootstrap-template" target="_blank">Build</a></li>
-                  <li><a href="http://freehtml5.co/preview/?item=work-free-html5-template-bootstrap" target="_blank">Work</a></li>
-                  <li><a href="http://freehtml5.co/preview/?item=light-free-html5-template-bootstrap" target="_blank">Light</a></li>
-                  <li><a href="http://freehtml5.co/preview/?item=relic-free-html5-template-using-bootstrap" target="_blank">Relic</a></li>
-                  <li><a href="http://freehtml5.co/preview/?item=display-free-html5-template-using-bootstrap" target="_blank">Display</a></li>
-                  <li><a href="http://freehtml5.co/preview/?item=sprint-free-html5-template-bootstrap" target="_blank">Sprint</a></li>
-                </ul>
-              </li>
-              <li><a href="#">UI Animation</a></li>
-              <li><a href="#">Copywriting</a></li>
-              <li><a href="#">Photography</a></li> 
-            </ul>
+              <a (click)="Navegar('Listado')"  class="color-1">Listado</a>
           </li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="active"><a href="/QuienSoy">Quien Soy?</a></li>
+          <li>
+              <a (click)="Navegar('Configuracion')"  class="color-1">Configuración</a>
+          </li>
+          <li>
+              <a (click)="Navegar('Jugadores')"  class="color-1">Jugadores</a>
+          </li>
+          
         </ul>
       </nav>
     </div> 
     
     
     
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="./QuienSoy#quien">Quien</a></li>
-        <li><a href="/TP_LAV4_2017/QuienSoy#que">Ques es</a></li>
-        <li><a href="./QuienSoy#donde">Donde</a></li>
-      </ul>
-    </div>
+    
   </div>
 </nav>
 
@@ -85,17 +55,3 @@
 
 
 
-<!--     ANTERIOR  
-<div class="panel panel-default">
-  <div class="hero-text">
-      <h1 style="font-size:50px">Sala de Juegos</h1>
-      <p>Damian Vogel</p>
-      <a href="https://github.com/DamianVogel/" target="_blank">en GitHub <i class="fa fa-github"></i></a>
-      <a  routerLink="/QuienSoy" >Quien Soy? <i class="fa fa-user"></i></a>
-  </div>
-  <ul class="nav navbar-nav navbar-right">
-          <li><a routerLink="/Registro"><span class="glyphicon glyphicon-user"></span>Registrarse</a></li>
-          <li><a  routerLink="/Login"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
-  </ul>
-</div>
--->

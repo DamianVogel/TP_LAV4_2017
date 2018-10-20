@@ -1494,7 +1494,9 @@ img {
   transition: all 0.2s ease-in-out;
   display: inline-block;
   max-width: 100%;
-  height: auto;
+  height:fit-content;
+  width: fit-content;
+  
 }
 
 .img-circle {

@@ -10,10 +10,8 @@
     margin-bottom: 40px;
 }
 
-.prueba{
-  background-image: url(/src/assets/imagenes/cerebro.jpg); 
 
-}
+
 
 
 .hero-text {
@@ -85,6 +83,7 @@ color: white;
 .sf-menu li:hover,
 .sf-menu li.sfHover {
   background: transparent;
+	cursor: pointer;
 }
 
 .sf-menu ul li a,
@@ -93,6 +92,7 @@ color: white;
   padding: 0.2em 1em !important;
   letter-spacing: 1px;
   font-size: 14px !important;
+	cursor: pointer;
 }
 
 .sf-menu li:hover a,
