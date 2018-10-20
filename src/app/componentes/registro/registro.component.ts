@@ -25,8 +25,11 @@ function copiaClave(input: FormControl) {
 
 export class RegistroComponent implements OnInit {
 
+
+
   constructor(private builder: FormBuilder,
-              private _registro: RegistroService
+              private _registro: RegistroService,
+              private router: Router
     ) { }
 
   email = new FormControl('', [
@@ -61,12 +64,21 @@ export class RegistroComponent implements OnInit {
     
     this._registro.Registro(usuario)
     .subscribe(data =>{
-      //alert(data._body);
+      
+      let resultado = JSON.parse(data._body);
+
+      if(resultado)
+      {
+        alert("Usuario Registrado");
+        this.router.navigate(['/Login']);
+      }
+        else{
+          alert("Intentelo nuevamenete");
+        }
+    
     });
 
-    alert("Usuario Registrado");
-    //console.log(this.registroForm.get('email').value); 
-    
+   
   }
 
 }

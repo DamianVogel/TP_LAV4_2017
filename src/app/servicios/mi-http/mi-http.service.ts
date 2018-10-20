@@ -27,7 +27,7 @@ export class MiHttpService {
   }
 
  
-  public httpPost(metodo:string, objeto:any)
+  public httpPost(metodo:string, objeto:any):Observable<any>
   {
     
     //var array = new Array(objeto,this.token);
