@@ -20,7 +20,7 @@ export class ListadoComponent implements OnInit {
     
   }
 
-  llamaService(){
+  TraerTodosLosJugadores(){
     console.log("llamaService");
     this.listadoParaCompartir= this.miServicioJuego.listar();
   }

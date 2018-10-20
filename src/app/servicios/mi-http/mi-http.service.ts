@@ -19,8 +19,10 @@ export class MiHttpService {
 
   public httpGetP ( url: string)
   {
+    console.log(this.api+url);
+    
     return this.http
-    .get( url )
+    .get(this.api+url )
     .toPromise()
     .then( this.extractData )
     .catch( this.handleError );
