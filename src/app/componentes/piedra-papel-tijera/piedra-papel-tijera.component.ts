@@ -13,6 +13,9 @@ export class PiedraPapelTijeraComponent implements OnInit {
   divEleccionUsuario : boolean;
   decisionOrdenador : string;
   resultado: string;
+  Mensajes: string;
+  ganador: boolean = false;
+  empate: boolean;
 
   constructor() {
     this.botonNuevoJuego = true;
@@ -75,31 +78,65 @@ export class PiedraPapelTijeraComponent implements OnInit {
     
         if (this.eleccion == this.decisionOrdenador) {
             this.resultado= "Empate, los dos eligieron " +this.eleccion;
-                  } else {
+            this.ganador =false;
+            this.empate = true;
+        } else {
             if (this.eleccion == "piedra" && this.decisionOrdenador == "papel") {
               this.resultado= ""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.";
+              this.ganador =false;
             } 
             if (this.eleccion == "piedra" && this.decisionOrdenador == "tijera") {
               this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario";
+              this.ganador = true;
             } 
             if (this.eleccion == "papel" && this.decisionOrdenador == "tijera") { 
               this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.";
+              this.ganador =false;
             }
             if (this.eleccion == "papel" && this.decisionOrdenador == "piedra"){
               this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario";
+              this.ganador = true;
             }
             if (this.eleccion == "tijera" && this.decisionOrdenador == "piedra") {
               this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.";
                 }
             if (this.eleccion == "tijera" && this.decisionOrdenador == "papel") {
               this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario";
+              this.ganador = true;
             }
         }
         
-        console.log(this.resultado);
+        //console.log(this.resultado);
+        this.MostarMensaje(this.resultado, this.ganador);
+
         this.botonNuevoJuego = true;
      
       }  
+
+      MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
+        // this.tirarDados = false;
+         this.Mensajes=mensaje;    
+         var x = document.getElementById("snackbar");
+         if(ganador)
+           {
+             x.className = "show Ganador";
+           }else if(ganador == false && this.empate==true ){
+            x.className = "show Empate";
+           }
+           else
+           {
+            x.className = "show Perdedor";
+           }
+         var modelo=this;
+         setTimeout(function(){ 
+           x.className = x.className.replace("show", "");
+          // this.tirarDados = true;
+           //this.deNuevo = false;
+          }, 3000);
+         //console.info("objeto",x);
+       
+       }  
+
 
     //logicaJuego(this.eleccion, this.decisionOrdenador);
 };
