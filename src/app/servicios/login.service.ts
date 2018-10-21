@@ -11,9 +11,9 @@ export class LoginService {
   constructor(public miHttp: MiHttpService) { }
 
   public ServiceLogin(datosLogin):Observable<any> {
-    console.log("entro LoginService" + datosLogin);
+    //console.log("entro LoginService" + datosLogin);
     
-    return this.miHttp.httpPost("validarusuario",datosLogin)
+    return this.miHttp.httpPost("login",datosLogin)
         .pipe(data =>{return data;}); 
 
   }

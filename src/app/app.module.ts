@@ -58,7 +58,7 @@ import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-goog
 import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
-import { LoginPruebaComponent } from './componentes/login-prueba/login-prueba.component';
+
 import { ErrorPruebaComponent } from './componentes/error-prueba/error-prueba.component';
 import { JuegoDadosComponent } from './componentes/juego-dados/juego-dados.component';
 import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
@@ -90,7 +90,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     JugadoresListadoComponent,
     InputJugadoresComponent,
     SexoPipe,
-    LoginPruebaComponent,
     ErrorPruebaComponent,
     JuegoDadosComponent,
     PiedraPapelTijeraComponent,

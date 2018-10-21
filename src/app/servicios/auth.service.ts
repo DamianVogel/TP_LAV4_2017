@@ -30,6 +30,7 @@ export class AuthService {
       {
         //Si entro aca el token expiro
         console.log("Token Expiro o No hay token");
+        //localStorage.removeItem('token');
         let rta = false;
         
         return rta;
@@ -40,6 +41,8 @@ export class AuthService {
     
     
     } catch (error) {
+      
+      console.log("entro en el catch de isLogued");
       return false;
     }
   }

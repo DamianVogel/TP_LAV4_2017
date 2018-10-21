@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   progresoMensaje="esperando..."; 
   logeando=true;
   ProgresoDeAncho:string;
-  datosToken: any;
+  respuesta: any;
 
 
   clase="progress-bar progress-bar-info progress-bar-striped ";
@@ -41,39 +41,33 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  /*
-  Entrar() {
 
-    
-    if (this.usuario === 'admin' && this.clave === 'admin') {
-      this.router.navigate(['/Principal']);
-    }
-  
-
-  }
-  */
   Entrar(){
     
-    //let loginDatos = new Array({'nombre':'LEANDRO'},{'password':'1234'});
+    
     
     var loginDatos = new Usuario(this.usuario, this.clave);
 
 
-    console.log(loginDatos);
+    //console.log(loginDatos);
 
     this._servicio.ServiceLogin(loginDatos).subscribe(data =>{
       
-      this.datosToken = JSON.parse(data._body);
+      this.respuesta = JSON.parse(data._body);
       
-     console.log(this.datosToken);     
+     console.log(this.respuesta);     
       
-            if ( this.datosToken.token != '' )
+            if ( this.respuesta.status)
               {
                 //console.log(this.datosToken.token);
-                localStorage.setItem('token', this.datosToken.token);
+                localStorage.setItem('token', this.respuesta.token);
                 this.router.navigateByUrl("/Principal");
               }
-            
+              else
+                  {
+                    alert("Error intente de nuevo");
+                    this.router.navigateByUrl("/Login");
+                  }
       /*        
       const helper = new JwtHelperService();
   

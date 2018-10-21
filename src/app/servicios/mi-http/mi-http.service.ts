@@ -15,6 +15,9 @@ export class MiHttpService {
 
   api="http://localhost/Programacion-3-2017/TP_ESTACIONAMIENTO_DV/";
 
+  //api="http://localhost/tpjuegos/";
+
+
   constructor( public http: Http ) { }
 
   public httpGet(metodo:string, objeto:any):Observable<any>{

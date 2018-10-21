@@ -35,7 +35,7 @@ import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 const MiRuteo = [
   {path: 'errorPrueba', component: ErrorPruebaComponent},
   {path: 'Jugadores' , component: JugadoresListadoComponent},
-  {path: '' , component: PrincipalComponent},
+  {path: '' , component: PrincipalComponent, canActivate: [VerificarJWTService] },
   {path: 'Login' , component: LoginComponent},
   {path: 'Mapa' , component: MapaDeGoogleComponent},
   {path: 'QuienSoy' , component: QuienSoyComponent},
