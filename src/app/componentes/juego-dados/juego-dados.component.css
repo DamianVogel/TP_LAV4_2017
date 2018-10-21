@@ -6,8 +6,8 @@ form {
     box-sizing: border-box;
     width: 50%;
     
-    align-items: center !important;
-    justify-content: center !important;
+    /* align-items: center !important;
+    justify-content: center !important; */
 }
 
 input[type=text], input[type=password] {
@@ -23,7 +23,7 @@ input[type=text], input[type=password] {
     /*background-color: #4CAF50;*/
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    /* margin: 8px 0; */
     border: none;
     cursor: pointer;
     width: 25%;
@@ -122,4 +122,31 @@ span.psw {
 @keyframes fadeout {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
+}
+
+.centro{
+    margin-right: auto;
+    margin-left: auto;
+    width: 500px;
+    border: 10px solid #f1f1f1;
+    background: whitesmoke;
+    text-align: center;
+    align-items: center;
+}
+/* 
+.centro h2{
+    border: 10px solid #FF0000;
+    
+
+
+} */
+
+.centro form{
+    width: fit-content;
+
+
+}
+
+.centro button{
+    width: fit-content;
 }

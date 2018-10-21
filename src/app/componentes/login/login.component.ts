@@ -16,8 +16,8 @@ import {Usuario} from '../../clases/usuario';
 export class LoginComponent implements OnInit {
 
   private subscription: Subscription;
-  mail = '';
-  clave= '';
+  mail = 'asd@asd.com';
+  clave= '1234';
   progreso: number;
   progresoMensaje="esperando..."; 
   logeando=true;

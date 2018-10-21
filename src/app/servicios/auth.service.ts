@@ -24,7 +24,7 @@ export class AuthService {
   public isLogued()
   {
     try {
-      //console.log( 'is logued', this.jwtHelper.isTokenExpired(this._token));
+      
       this._token = localStorage.getItem('token');
 
       if(this.jwtHelper.isTokenExpired(this._token))
