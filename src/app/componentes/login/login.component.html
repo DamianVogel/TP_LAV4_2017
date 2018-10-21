@@ -24,13 +24,14 @@
  <div class="container" >
   <div class="jumbotron" style="padding:50px;">
     <form action="return true;">
-      <div class="imgcontainer">
+      
+      <!-- <div class="imgcontainer">
         <img src="./assets/imagenes/login.png" alt="Avatar" class="avatar" max-width="104" >
-      </div>
+      </div> -->
 
       <div class="container">
-        <label><b>Usuario</b></label>
-        <input type="text" placeholder="Usuario"  [(ngModel)]="usuario"  name="uname" required>
+        <label><b>Mail</b></label>
+        <input type="text" placeholder="Mail"  [(ngModel)]="mail"  name="uname" required>
 
         <label><b>Clave</b></label>
         <input type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>
@@ -43,13 +44,13 @@
             </div>
         </div>
        
-        <input type="checkbox" checked="checked"> Recordar mis datos
+        <!-- <input type="checkbox" checked="checked"> Recordar mis datos -->
       </div>
 
       <div class="container" style="background-color:#f1f1f1">
         <button type="button" class="cancelbtn">Cancelar</button>
         <button type="button" class="aceptbtn" routerLink="/Registro" >Registrarse</button>
-        <span class="psw">Te olvidaste <a href="#">la clave?</a></span>
+        <!-- <span class="psw">Te olvidaste <a href="#">la clave?</a></span> -->
       </div>
      
     </form>

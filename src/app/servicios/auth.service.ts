@@ -16,7 +16,7 @@ export class AuthService {
   jwtHelper: JwtHelperService = new JwtHelperService();
   
   constructor( private router: Router ) {
-    this._token = localStorage.getItem('token');
+   // this._token = localStorage.getItem('token');
    // console.log("entro al AuthService");
     //console.log("el token es: "+ this._token);
   }
@@ -25,7 +25,8 @@ export class AuthService {
   {
     try {
       //console.log( 'is logued', this.jwtHelper.isTokenExpired(this._token));
-      
+      this._token = localStorage.getItem('token');
+
       if(this.jwtHelper.isTokenExpired(this._token))
       {
         //Si entro aca el token expiro

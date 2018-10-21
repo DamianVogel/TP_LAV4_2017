@@ -31,16 +31,10 @@ export class MiHttpService {
 
  
   public httpPost(metodo:string, objeto:any):Observable<any>
-  {
-    
+  { 
     //var array = new Array(objeto,this.token);
-
-    console.log(metodo,objeto);
-
-    return this.http.post(this.api + metodo, objeto
-                          
-                          //,this.httpOptions  
-                        )
+    //console.log(metodo,objeto);
+    return this.http.post(this.api + metodo, objeto)
     .pipe(catchError(this.handleError));
   }
 

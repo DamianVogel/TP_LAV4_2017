@@ -16,7 +16,7 @@ import {Usuario} from '../../clases/usuario';
 export class LoginComponent implements OnInit {
 
   private subscription: Subscription;
-  usuario = '';
+  mail = '';
   clave= '';
   progreso: number;
   progresoMensaje="esperando..."; 
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     
     
     
-    var loginDatos = new Usuario(this.usuario, this.clave);
+    var loginDatos = new Usuario(this.mail, this.clave);
 
 
     //console.log(loginDatos);
