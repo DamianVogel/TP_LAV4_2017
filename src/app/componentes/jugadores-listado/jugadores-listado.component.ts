@@ -27,7 +27,7 @@ export class JugadoresListadoComponent implements OnInit {
     this.miJugadoresServicio.traertodos('traerpartidas','todos').then(data=>{
       //console.info("jugadores listado",(data));
       //this.listado= data;
-      this.listado = JSON.parse(data._body)
+      this.listado = data;
 
     })
     
@@ -42,13 +42,13 @@ export class JugadoresListadoComponent implements OnInit {
     
   }
   TraerPerdedores(){
-    /*
-    this.miJugadoresServicio.traertodos('jugadores/','perdedores').then(data=>{
+    
+    this.miJugadoresServicio.traertodos('traerpartidas','perdedores').then(data=>{
       //console.info("jugadores listado",(data));
       this.listado= data;
 
     })
-    */
+    
   }
 
 }

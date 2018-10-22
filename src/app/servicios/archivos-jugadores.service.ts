@@ -17,8 +17,8 @@ export class ArchivosJugadoresService {
     return this.miHttp.httpGet(ruta,'')
     .toPromise()
     .then( data => {
-      console.log("Archivo jugadores");
-      console.log( data );
+      //console.log("Archivo jugadores");
+      //console.log( data );
       return data;
     }, err => {
       console.log( err );

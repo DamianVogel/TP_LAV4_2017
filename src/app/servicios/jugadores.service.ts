@@ -18,29 +18,22 @@ filtrado:any;
   { 
     return this.miHttp.traerJugadores(ruta).then(data=>{
             
-
       this.filtrado=JSON.parse(data._body);
-
-      console.info(this.filtrado);
-
-     //let  ganador: boolean;
+     
       let ganador: number;
 
       if(filtro=="ganadores")
       {
-        //ganador= true;
+        
         ganador= 1;
       }
       else
       {
-        //ganador= false;
         ganador = 0;
       }
 
-      this.filtrado =this.filtrado
-      .filter(
-        data => data.Gano === ganador  || filtro=="todos" ); return this.filtrado}
-      )
+      this.filtrado =this.filtrado.filter(
+        data => data.Gano === ganador  || filtro=="todos"  ); return this.filtrado})
       .catch(errror=>{
         console.log("error");
         return this.filtrado;
