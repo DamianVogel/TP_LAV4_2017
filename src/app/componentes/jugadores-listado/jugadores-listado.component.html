@@ -1,10 +1,8 @@
 <ul class="nav nav-pills nav-justified">
-  <li><a (click)="TraerTodos()">Todos los jugadores</a></li>
-  <li><a (click)="TraerGanadores()">Los ganadores</a></li>
-  <li><a (click)="TraerPerdedores()">Los perdedores</a></li>
+  <input type="button" (click)="TraerTodos()" class="btn btn-info" value="Todos los Jugadores" >  
+  <input type="button" (click)="TraerGanadores()" class="btn btn-info" value="Los Ganadores" > 
+  <input type="button" (click)="TraerPerdedores()" class="btn btn-info" value="Los Perdedores" > 
 </ul>
-
-
 
 <table class="table table-condensed">
   <thead>
