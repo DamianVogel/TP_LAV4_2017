@@ -33,13 +33,13 @@ export class JugadoresListadoComponent implements OnInit {
     
   }
   TraerGanadores(){
-    /*
-    this.miJugadoresServicio.traertodos('jugadores/','ganadores').then(data=>{
+    
+    this.miJugadoresServicio.traertodos('traerpartidas','ganadores').then(data=>{
       //console.info("jugadores listado",(data));
       this.listado= data;
 
-    })
-    */
+    });
+    
   }
   TraerPerdedores(){
     /*

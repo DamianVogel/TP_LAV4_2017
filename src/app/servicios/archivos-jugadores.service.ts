@@ -18,7 +18,7 @@ export class ArchivosJugadoresService {
     .toPromise()
     .then( data => {
       console.log("Archivo jugadores");
-     console.log( data );
+      console.log( data );
       return data;
     }, err => {
       console.log( err );
