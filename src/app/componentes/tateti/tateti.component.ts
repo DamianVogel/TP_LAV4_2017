@@ -16,6 +16,7 @@ export class TatetiComponent implements OnInit {
   valorUsuario:string;
   turno:string;
   ganador:string;
+  Mensajes:string;
   
 
   constructor(
@@ -71,6 +72,7 @@ export class TatetiComponent implements OnInit {
           }
           );
 
+        this.MostarMensaje("Ganaste",this.miJuego.gano);
      
       }
 
@@ -102,6 +104,25 @@ export class TatetiComponent implements OnInit {
         console.log("perdiste");
         this.turno="jugador";
 
+        this.miJuego.gano=false;
+        
+
+        let jugador = this.datosToken.getUsuario();
+
+        var juegoDB = new JuegoDB('Tateti',jugador,this.miJuego.gano);
+    
+        //console.log(jugador);
+    
+        this.juegoService.GuardarPartida(juegoDB).subscribe(data =>
+          {
+           //console.log(data);
+          }
+          );
+
+
+
+        this.MostarMensaje("Perdiste",this.miJuego.gano);
+
 
 
 
@@ -131,6 +152,26 @@ export class TatetiComponent implements OnInit {
     }
 
   }
+
+  MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
+    // this.tirarDados = false;
+     this.Mensajes=mensaje;    
+     var x = document.getElementById("snackbar");
+     if(ganador)
+       {
+         x.className = "show Ganador";
+       }else{
+         x.className = "show Perdedor";
+       }
+     var modelo=this;
+     setTimeout(function(){ 
+       x.className = x.className.replace("show", "");
+      // this.tirarDados = true;
+       //this.deNuevo = false;
+      }, 3000);
+     //console.info("objeto",x);
+   
+   }
 
 
 

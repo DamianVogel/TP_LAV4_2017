@@ -1,6 +1,7 @@
 ﻿PENDIENTES TP
 
 -Agregar gano o perdio a todos los juegos
+-Mejorar Boton del tateti
 -Traiga todas las partidas con sus diferentes juegos.
 -Distinct en listado de jugadores
 -Autenticar token en todos los lugares
