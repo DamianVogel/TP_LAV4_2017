@@ -7,6 +7,7 @@ import { JuegoServiceService } from '../../servicios/juego-service.service';
 import { JuegoDB } from '../../clases/juegoDB';
 import { AuthService } from '../../servicios/auth.service';
 
+
 @Component({
   selector: 'app-agilidad-aritmetica',
   templateUrl: './agilidad-aritmetica.component.html',
@@ -28,6 +29,9 @@ export class AgilidadAritmeticaComponent implements OnInit {
     repetidor:any;
     private subscription: Subscription;
   
+  
+
+
   ngOnInit() {
   }
     constructor(private juegoService: JuegoServiceService,
@@ -40,6 +44,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   }
   
   NuevoJuego() {
+    this.nuevoJuego = new JuegoAgilidad();
     this.ocultarTabla = true;
     this.ocultarNuevoJuego= false;
     this.ocultarVerificar = true;
@@ -105,6 +110,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
       }
       );
 
+    this.enviarJuego.emit(juegoDB); 
     this.ocultarNuevoJuego=true;
     clearInterval(this.repetidor);
   }  

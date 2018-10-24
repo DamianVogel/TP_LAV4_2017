@@ -22,8 +22,9 @@
       <td>{{jugador.gano}} </td> 
       -->
       <td>{{jugador.jugador}} </td>
-      <td>{{jugador.gano}} </td> 
-    
+       
+      <td *ngIf="jugador.gano">Gano </td>   
+      <td *ngIf="!jugador.gano">Perdio</td>
     
     
     </tr>
