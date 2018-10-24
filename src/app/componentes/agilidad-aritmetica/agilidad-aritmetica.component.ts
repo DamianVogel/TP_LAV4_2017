@@ -35,7 +35,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.ocultarTabla = false;
     this.ocultarVerificar = false;
     this.ocultarNuevoJuego = true;
-    console.info("Inicio agilidad");  
+    //console.info("Inicio agilidad");  
     this.nuevoJuego = new JuegoAgilidad();
   }
   
@@ -50,7 +50,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.repetidor = setInterval( ()=>{ 
       
       this.Tiempo--;
-      console.log("llego", this.Tiempo);
+      //console.log("llego", this.Tiempo);
       
         if(this.Tiempo==0 ) {
         clearInterval(this.repetidor);
@@ -101,7 +101,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
     this.juegoService.GuardarPartida(juegoDB).subscribe(data =>
       {
-       console.log(data);
+       //console.log(data);
       }
       );
 

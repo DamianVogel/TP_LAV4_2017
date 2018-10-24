@@ -1,37 +1,38 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!--app-menu></app-menu-->
 <!-- index.html -->
-
-<div name="contenedorJuego" class="contenedorJuego">
-  <form name="juego">
-    <div *ngIf="ocultarTabla">
-          Primer número: <input value={{nuevoJuego.numeroRandom1}} name="numeroRandom1" type="text" class="form-control" style="width:50%" readonly/>
+<div class="centro">
+<div name="contenedorJuego" class="contenedorJuego centro">
+  <form name="juego" class="centro">
+    <div *ngIf="ocultarTabla" class="centro" >
+          Primer número: <input value={{nuevoJuego.numeroRandom1}} name="numeroRandom1" type="text" class="form-control " style="width:50%" readonly/>
         
-          Operador: <input value={{nuevoJuego.operador}} name="operador" type="text" class="form-control" style="width:50%" readonly/>
+          Operador: <input value={{nuevoJuego.operador}} name="operador" type="text" class="form-control " style="width:50%" readonly/>
        
-          Segundo número: <input value={{nuevoJuego.numeroRandom2}} name="numeroRandom2" type="text" class="form-control" style="width:50%" readonly/>
+          Segundo número: <input value={{nuevoJuego.numeroRandom2}} name="numeroRandom2" type="text" class="form-control " style="width:50%" readonly/>
        
-          Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>         
+          Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control " style="width:50%"/>         
     </div>
 
-    <div *ngIf="ocultarVerificar">
+    <div *ngIf="ocultarVerificar" class="centro">
       <h2>
-        <button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button>
+        <button (click)="verificar()" class="btn btn-success btn-lg ">Verificar {{Tiempo}} </button>
       </h2>   
     </div>
 
-    <div *ngIf="ocultarNuevoJuego">  
+    <div *ngIf="ocultarNuevoJuego" class="centro">  
       <h2>
-        <button  (click)="NuevoJuego()"  class="btn btn-info btn-lg">
+        <button  (click)="NuevoJuego()"  class="btn btn-info btn-lg ">
           Nuevo
         </button>
       </h2>        
     </div>
   
     
-    <div>       
+    <div class="centro">       
       <h3 *ngIf="nuevoJuego.gano">Felicitaciones! El resultado es correcto!</h3>
       <h3 *ngIf="nuevoJuego.perdio">El resultado es incorrecto, mejor suerte la proxima vez! </h3>   
     </div>
   </form>
+</div>
 </div>

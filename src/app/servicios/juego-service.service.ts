@@ -52,10 +52,7 @@ export class JuegoServiceService {
     public GuardarPartida(datos): Observable<any>
   {
     
-
-    //var datos1 = [{'juego':'pruebafront'},{'jugador':'pruebafront'},{'gano':1}]
-
-    console.log(datos);
+   // console.log(datos);
 
     return this.miHttp.httpPost("altaJuegos",datos)
         .pipe(data =>{return data;}); 
