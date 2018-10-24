@@ -5,6 +5,7 @@ import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
 import { JuegoServiceService } from '../../servicios/juego-service.service';
 import { JuegoDB } from '../../clases/juegoDB';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-agilidad-aritmetica',
@@ -29,7 +30,8 @@ export class AgilidadAritmeticaComponent implements OnInit {
   
   ngOnInit() {
   }
-    constructor(private juegoService: JuegoServiceService) {
+    constructor(private juegoService: JuegoServiceService,
+                private datosToken:AuthService) {
     this.ocultarTabla = false;
     this.ocultarVerificar = false;
     this.ocultarNuevoJuego = true;
@@ -84,21 +86,25 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
       this.nuevoJuego.gano = true;
 
-      var juegoDB = new JuegoDB('AgilidadAritmetica','pruebaDV', this.nuevoJuego.gano);
-
-      this.juegoService.GuardarPartida(juegoDB).subscribe(data =>
-        {
-          console.log(data);
-        }
-        );
-
     }else{
 
       this.nuevoJuego.perdio = true;
     }
 
-    console.log(this.nuevoJuego.gano);
-        
+    
+    
+    let jugador = this.datosToken.getUsuario();
+
+    var juegoDB = new JuegoDB('AgilidadAritmetica',jugador,this.nuevoJuego.gano);
+
+    //console.log(jugador);
+
+    this.juegoService.GuardarPartida(juegoDB).subscribe(data =>
+      {
+       console.log(data);
+      }
+      );
+
     this.ocultarNuevoJuego=true;
     clearInterval(this.repetidor);
   }  

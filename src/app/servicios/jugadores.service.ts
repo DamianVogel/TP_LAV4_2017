@@ -33,7 +33,7 @@ filtrado:any;
       }
 
       this.filtrado =this.filtrado.filter(
-        data => data.Gano === ganador  || filtro=="todos"  ); return this.filtrado})
+        data => data.gano === ganador  || filtro=="todos"  ); return this.filtrado})
       .catch(errror=>{
         console.log("error");
         return this.filtrado;

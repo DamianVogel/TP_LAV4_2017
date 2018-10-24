@@ -3,6 +3,7 @@ import { Juego } from '../clases/Juego';
 import { JuegoAdivina } from '../clases/juego-adivina';
 import { MiHttpService } from './mi-http/mi-http.service'; 
 import { Observable } from 'rxjs/Observable';
+import { JuegoAgilidad } from '../clases/juego-agilidad';
 
 @Injectable()
 export class JuegoServiceService {
@@ -27,9 +28,13 @@ export class JuegoServiceService {
         
         //console.log(entry); 
           
-          switch(entry.Juego){
+          switch(entry.juego){
             case 'JuegoAdivina':
-              miArray.push(new JuegoAdivina(undefined,entry.Gano,entry.Jugador));
+              miArray.push(new JuegoAdivina(undefined,entry.gano,entry.jugador));
+              break;
+
+            case 'AgilidadAritmetica':
+              miArray.push(new JuegoAdivina('AgilidadAritmetica',entry.gano,entry.jugador));
               break;
           
           
