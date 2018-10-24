@@ -56,7 +56,7 @@ export class TatetiComponent implements OnInit {
       if(this.miJuego.gano && this.ganador != "pc")
       {
         this.ganador="jugador";
-        console.log("ganaste");
+        
         this.miJuego.gano=true;
         
 

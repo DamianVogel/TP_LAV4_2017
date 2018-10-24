@@ -81,3 +81,32 @@
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
+
+.centro{
+    margin-right: auto;
+    margin-left: auto;
+    width: 500px;
+    border: 10px solid #fff;
+    background: rgb(52, 196,#FF0000);
+    text-align: center;
+    align-items: center;
+}
+/* 
+.centro h2{
+    border: 10px solid #FF0000;
+    
+
+
+} */
+
+.centro form{
+    width: fit-content;
+
+
+}
+
+.centro button{
+    width: fit-content;
+    font: normal;
+    cursor: pointer;
+}

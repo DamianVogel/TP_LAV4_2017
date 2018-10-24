@@ -53,7 +53,7 @@ public MarcarCasilla(x,y,valor)
                 if( this.tablero[0][0].valor != "" && this.tablero[1][1].valor != "" && this.tablero[2][2].valor != "" &&
                     this.tablero[0][0].valor == this.tablero[1][1].valor && this.tablero[1][1].valor == this.tablero[2][2].valor)
                 {
-                    console.log("tatei");
+                    //console.log("tatei");
                    
                     this.gano=true;
                     return true;
@@ -61,7 +61,7 @@ public MarcarCasilla(x,y,valor)
                 if(this.tablero[0][2].valor == this.tablero[1][1].valor && this.tablero[1][1].valor == this.tablero[2][0].valor &&
                     this.tablero[0][2].valor != "" && this.tablero[1][1].valor != "" && this.tablero[2][0].valor != "")
                 {
-                    console.log("tatei");
+                    //console.log("tatei");
                     this.gano=true;
                     return true;
                 }
@@ -69,7 +69,7 @@ public MarcarCasilla(x,y,valor)
                 if(this.tablero[0][0].valor != "" && this.tablero[0][1].valor != "" && this.tablero[0][2].valor != "" &&
                     this.tablero[0][0].valor == this.tablero[0][1].valor && this.tablero[0][1].valor == this.tablero[0][2].valor)
                 {
-                    console.log("tatei");
+                    //console.log("tatei");
                     this.gano=true;
                     return true;
                 }
@@ -77,14 +77,14 @@ public MarcarCasilla(x,y,valor)
                 if(this.tablero[1][0].valor != "" && this.tablero[1][1].valor != "" && this.tablero[1][2].valor != "" &&
                     this.tablero[1][0].valor == this.tablero[1][1].valor && this.tablero[1][1].valor == this.tablero[1][2].valor)
                 {
-                    console.log("tatei");
+                    //console.log("tatei");
                     this.gano=true;
                     return true;
                 }
                 if(this.tablero[2][0].valor != "" && this.tablero[2][1].valor != "" && this.tablero[2][2].valor != "" &&
                     this.tablero[2][0].valor == this.tablero[2][1].valor && this.tablero[2][1].valor == this.tablero[2][2].valor)
                 {
-                    console.log("tatei");
+                    //console.log("tatei");
                     this.gano=true;
                     return true;
                 }
@@ -92,21 +92,21 @@ public MarcarCasilla(x,y,valor)
                 if(this.tablero[0][0].valor != "" && this.tablero[1][0].valor != "" && this.tablero[2][0].valor != "" &&
                     this.tablero[0][0].valor == this.tablero[1][0].valor && this.tablero[1][0].valor == this.tablero[2][0].valor)
                 {
-                    console.log("tatei");
+                    //console.log("tatei");
                     this.gano=true;
                     return true;
                 }
                 if(this.tablero[0][1].valor != "" && this.tablero[1][1].valor != "" && this.tablero[2][1].valor != "" &&
                     this.tablero[0][1].valor == this.tablero[1][1].valor && this.tablero[1][1].valor == this.tablero[2][1].valor)
                 {
-                    console.log("tatei");
+                    //console.log("tatei");
                     this.gano=true;
                     return true;
                 }
                 if(this.tablero[0][2].valor != "" && this.tablero[1][2].valor != "" && this.tablero[2][2].valor != "" &&
                     this.tablero[0][2].valor == this.tablero[1][2].valor && this.tablero[1][2].valor == this.tablero[2][2].valor)
                 {
-                    console.log("tatei");
+                    //console.log("tatei");
                     this.gano=true;
                     return true;
                 }
