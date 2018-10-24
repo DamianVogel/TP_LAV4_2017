@@ -1,28 +1,10 @@
-﻿13-09 DISEÑO Y PUBLICACION EN LA WEB DE LA SALA DE JUEGO.
-16-09 LOGICA Y FUNCIONALIDAD DEL JUEGO.
-20-09 -CAMBIO TOTAL DE IMAGENES Y CAMBIO DE DISEÑO.
-27-09 ENTREGA DEL TP.
-04-10 PARCIAL
+﻿PENDIENTES TP
 
--Practicar Binding
--Hacer Logging
-
-
-
-[(NgModel)] corchete = "nombre"
-
-{{nombre}}
-
-(click) = "miusuario.Guardar()"
-
-corchetes = alt + 91 + 93
-
-
-Para instalar.
---------------
-npm install -g @angular/cli
-
-
-para publicar en github
-
-https://github.com/angular/angular-cli/wiki/stories-github-pages
+-Grabe en el resto de los juegos.
+-Traiga todas las partidas con sus diferentes juegos.
+-Distinct en listado de jugadores
+-Autenticar token en todos los lugares
+-Agregar botones para poder ver los juegos con listados.
+-quitar el USTED aun no gano de adivina el numero
+-Verificar comportamiento de listado que no refresca si no se realiza refresh
+-Verificar que esta mostrando el listado completo en el componente.

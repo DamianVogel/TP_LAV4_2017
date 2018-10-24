@@ -12,7 +12,7 @@ export class JuegoAnagrama extends Juego{
     pista:string;
     
     constructor(nombre?: string, gano?: boolean, jugador?:string) {
-        super("Anagrama",gano,jugador);
+        super(nombre,gano,jugador);
     }
 
     verificar(){

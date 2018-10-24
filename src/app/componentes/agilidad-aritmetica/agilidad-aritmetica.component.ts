@@ -110,6 +110,8 @@ export class AgilidadAritmeticaComponent implements OnInit {
       }
       );
 
+
+    //VALIDAR A QUE SE TERMINE AL CONSULTA Y QUE SE HAYA REALIZADO CORRECTAMENTE.
     this.enviarJuego.emit(juegoDB); 
     this.ocultarNuevoJuego=true;
     clearInterval(this.repetidor);

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Juego } from '../../clases/juego';
+import { JuegoServiceService} from '../../servicios/juego-service.service';
+import { JuegoDB } from '../../clases/juegoDB';
+
+
+
 @Component({
   selector: 'app-adivina-mas-listado',
   templateUrl: './adivina-mas-listado.component.html',
@@ -7,19 +12,19 @@ import { Juego } from '../../clases/juego';
 })
 export class AdivinaMasListadoComponent implements OnInit {
   public listadoParaCompartir: Array<any>;
-  constructor() { this.listadoParaCompartir = new Array<any>()}
+  constructor(public servicioJuego:JuegoServiceService) { 
+    //this.listadoParaCompartir = new Array<any>()
+  }
 
 
   ngOnInit() {
   }
-   tomarJuegoTerminado(juego: Juego)
+   tomarJuegoTerminado(juego: JuegoDB)
   {
-    this.listadoParaCompartir.push(juego);
-   // console.info("en app",this.listadoParaCompartir);
+    this.listadoParaCompartir = this.servicioJuego.listar();
   }
 
-
-
+  
 
 
 }

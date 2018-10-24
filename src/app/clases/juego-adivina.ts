@@ -8,7 +8,7 @@ export class JuegoAdivina extends  Juego
     
     constructor(nombre?: string, gano?: boolean, jugador?:string) {
         
-      super("Adivina el número",gano,jugador);
+      super(nombre,gano,jugador);
     
     }
     
