@@ -27,8 +27,8 @@ export class CabeceraComponent implements OnInit {
           this.router.navigate(['/Listado']);
         break;
       
-      case 'Configuracion':
-          this.router.navigate(['/Configuracion']);
+      case 'Juegos':
+          this.router.navigate(['/Juegos']);
         break;
       
       case 'Jugadores':

@@ -1,6 +1,6 @@
 ﻿PENDIENTES TP
 
--Grabe en el resto de los juegos.
+-Agregar gano o perdio a todos los juegos
 -Traiga todas las partidas con sus diferentes juegos.
 -Distinct en listado de jugadores
 -Autenticar token en todos los lugares

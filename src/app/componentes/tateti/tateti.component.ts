@@ -1,6 +1,9 @@
 import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
 import { Tateti } from '../../clases/tateti';
 import { NgIf } from '@angular/common';
+import { JuegoServiceService } from '../../servicios/juego-service.service';
+import { JuegoDB } from '../../clases/juegoDB';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-tateti',
@@ -15,7 +18,10 @@ export class TatetiComponent implements OnInit {
   ganador:string;
   
 
-  constructor() {
+  constructor(
+        private juegoService: JuegoServiceService,
+        private datosToken:AuthService 
+    ) {
     this.miJuego=new Tateti("jug");
    let r= Math.round(Math.random()); 
 
@@ -50,6 +56,22 @@ export class TatetiComponent implements OnInit {
       {
         this.ganador="jugador";
         console.log("ganaste");
+        this.miJuego.gano=true;
+        
+
+        let jugador = this.datosToken.getUsuario();
+
+        var juegoDB = new JuegoDB('Tateti',jugador,this.miJuego.gano);
+    
+        //console.log(jugador);
+    
+        this.juegoService.GuardarPartida(juegoDB).subscribe(data =>
+          {
+           //console.log(data);
+          }
+          );
+
+     
       }
 
       if(!this.miJuego.gano)
@@ -79,6 +101,9 @@ export class TatetiComponent implements OnInit {
         this.ganador="pc";
         console.log("perdiste");
         this.turno="jugador";
+
+
+
 
       }
 

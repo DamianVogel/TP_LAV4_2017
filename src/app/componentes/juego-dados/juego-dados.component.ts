@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JuegoDados } from '../../clases/juego-dados';
+import { JuegoServiceService } from '../../servicios/juego-service.service';
+import { JuegoDB } from '../../clases/juegoDB';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-juego-dados',
@@ -20,11 +23,13 @@ export class JuegoDadosComponent implements OnInit {
   Mensajes: string;
 
 
-  constructor() {
+  constructor(
+              private juegoService: JuegoServiceService,
+              private datosToken:AuthService 
+              ){
     this.nuevoJuego = new JuegoDados();
     this.deNuevo = false
-    this.tirarDados = true;
-    
+    this.tirarDados = true;    
   }
 
     
@@ -88,7 +93,18 @@ export class JuegoDadosComponent implements OnInit {
     }
 
   PerdioUsuario(){
-    
+    this.nuevoJuego.gano=false;
+    let jugador = this.datosToken.getUsuario();
+
+    var juegoDB = new JuegoDB('21Dados',jugador,this.nuevoJuego.gano);
+
+    //console.log(jugador);
+
+    this.juegoService.GuardarPartida(juegoDB).subscribe(data =>
+      {
+       //console.log(data);
+      }
+      );
     //console.log("Perdio el usuario");
     this.MostarMensaje("Perdiste", false);
 
@@ -108,7 +124,21 @@ export class JuegoDadosComponent implements OnInit {
     this.plantarse = false;
     this.tirarDados = false;
     this.deNuevo = true;
+    this.nuevoJuego.gano=true;
     
+    let jugador = this.datosToken.getUsuario();
+
+    var juegoDB = new JuegoDB('21Dados',jugador,this.nuevoJuego.gano);
+
+    //console.log(jugador);
+
+    this.juegoService.GuardarPartida(juegoDB).subscribe(data =>
+      {
+       //console.log(data);
+      }
+      );
+
+
   }
 
 
