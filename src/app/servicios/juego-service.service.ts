@@ -50,14 +50,10 @@ export class JuegoServiceService {
               miArray.push(new JuegoAdivina('21 con Dados',entry.gano,entry.jugador));
               break; 
             
-            case 'Tateti':
-              miArray.push(new JuegoAdivina('Ta te ti',entry.gano,entry.jugador));
+            case 'PPT':
+              miArray.push(new JuegoAdivina('Piedra Papel o Tijera',entry.gano,entry.jugador));
               break;
-            
-
-
-
-          
+                    
           }
             
           

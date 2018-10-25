@@ -34,14 +34,14 @@ import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 // declaro donde quiero que se dirija
 const MiRuteo = [
   {path: 'errorPrueba', component: ErrorPruebaComponent},
-  {path: 'Jugadores' , component: JugadoresListadoComponent},
+  {path: 'Jugadores' , component: JugadoresListadoComponent, canActivate: [VerificarJWTService]},
   {path: '' , component: PrincipalComponent, canActivate: [VerificarJWTService] },
   {path: 'Login' , component: LoginComponent},
   {path: 'Mapa' , component: MapaDeGoogleComponent},
-  {path: 'QuienSoy' , component: QuienSoyComponent},
+  {path: 'QuienSoy' , component: QuienSoyComponent, canActivate: [VerificarJWTService]},
   {path: 'Registro' , component: RegistroComponent},
   {path: 'Principal' , component: PrincipalComponent, canActivate: [VerificarJWTService]},
-  {path: 'Listado' , component: ListadoComponent},
+  {path: 'Listado' , component: ListadoComponent, canActivate: [VerificarJWTService]},
   {path: 'Paises' , component: ListadoDePaisesComponent},
   {path: 'Juegos' ,component: JuegosComponent,
     children:[
@@ -54,7 +54,7 @@ const MiRuteo = [
       {path: 'PPT' , component: PiedraPapelTijeraComponent},
       {path: 'Tateti' , component: TatetiComponent},
       {path: 'Anagrama' , component: AnagramaComponent}
-    ]},
+    ], canActivate: [VerificarJWTService]},
   {path: '**' , component: ErrorComponent},
   {path: 'error' , component: ErrorComponent}
 ];

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { JuegoServiceService } from '../../servicios/juego-service.service';
+import { JuegoDB } from '../../clases/juegoDB';
+import { AuthService } from '../../servicios/auth.service';
 
 
 @Component({
@@ -17,7 +20,8 @@ export class PiedraPapelTijeraComponent implements OnInit {
   ganador: boolean = false;
   empate: boolean;
 
-  constructor() {
+  constructor(private juegoService: JuegoServiceService,
+    private datosToken:AuthService) {
     this.botonNuevoJuego = true;
     this.divEleccionUsuario = false;
 
@@ -108,6 +112,24 @@ export class PiedraPapelTijeraComponent implements OnInit {
         
         //console.log(this.resultado);
         this.MostarMensaje(this.resultado, this.ganador);
+
+        if(this.ganador && this.empate != true)
+        {
+          let jugador = this.datosToken.getUsuario();
+
+          var juegoDB = new JuegoDB('PPT',jugador,this.ganador);
+ 
+          this.juegoService.GuardarPartida(juegoDB).subscribe(data =>{});
+
+        }else{
+
+          let jugador = this.datosToken.getUsuario();
+
+          var juegoDB = new JuegoDB('PPT',jugador,this.ganador);
+ 
+          this.juegoService.GuardarPartida(juegoDB).subscribe(data =>{});
+
+        }
 
         this.botonNuevoJuego = true;
      

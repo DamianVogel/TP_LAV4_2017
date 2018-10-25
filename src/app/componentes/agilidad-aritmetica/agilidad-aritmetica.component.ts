@@ -28,6 +28,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
     Tiempo: number;
     repetidor:any;
     private subscription: Subscription;
+    Mensajes: string;
   
   
 
@@ -110,6 +111,12 @@ export class AgilidadAritmeticaComponent implements OnInit {
       }
       );
 
+    if(this.nuevoJuego.gano)
+    {
+      this.MostarMensaje("Felicitaciones! El resultado es correcto!", this.nuevoJuego.gano);
+    }
+    else  
+      this.MostarMensaje("El resultado es incorrecto, mejor suerte la proxima vez! ", this.nuevoJuego.gano);
 
     //VALIDAR A QUE SE TERMINE AL CONSULTA Y QUE SE HAYA REALIZADO CORRECTAMENTE.
     this.enviarJuego.emit(juegoDB); 
@@ -117,4 +124,23 @@ export class AgilidadAritmeticaComponent implements OnInit {
     clearInterval(this.repetidor);
   }  
 
+  MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
+    // this.tirarDados = false;
+     this.Mensajes=mensaje;    
+     var x = document.getElementById("snackbar");
+     if(ganador)
+       {
+         x.className = "show Ganador";
+       }else{
+         x.className = "show Perdedor";
+       }
+     var modelo=this;
+     setTimeout(function(){ 
+       x.className = x.className.replace("show", "");
+      // this.tirarDados = true;
+       //this.deNuevo = false;
+      }, 3000);
+     //console.info("objeto",x);
+   
+   }
 }

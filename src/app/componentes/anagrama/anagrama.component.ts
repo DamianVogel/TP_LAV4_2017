@@ -3,6 +3,10 @@ import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
 import { JuegoAnagrama } from '../../clases/juego-anagrama';
 import { NgIf } from '@angular/common';
+import { JuegoServiceService } from '../../servicios/juego-service.service';
+import { JuegoDB } from '../../clases/juegoDB';
+import { AuthService } from '../../servicios/auth.service';
+
 
 @Component({
   selector: 'app-anagrama',
@@ -14,6 +18,7 @@ export class AnagramaComponent implements OnInit {
   Palabras:any;
   miJuego:JuegoAnagrama;
   repite:boolean = false; 
+  flag:boolean=true;
 
   @Output()
   enviarJuego :EventEmitter<any>= new EventEmitter<any>();
@@ -24,7 +29,8 @@ export class AnagramaComponent implements OnInit {
     private subscription: Subscription;
     Mensajes:string;
 
-  constructor() {
+  constructor(private juegoService: JuegoServiceService,
+    private datosToken:AuthService) {
     this.miJuego = new JuegoAnagrama();
     this.Tiempo=15; 
     this.miJuego.jugador = "nn";
@@ -32,13 +38,14 @@ export class AnagramaComponent implements OnInit {
    }
 
   GenerarNuevo(){
+    this.Tiempo=15;
     this.ocultarVerificar=false;
     this.repetidor = setInterval(()=>{ 
       
       if(this.Tiempo >0) {this.Tiempo--;}
 
       // console.log("Contador", this.Tiempo);
-      if(this.Tiempo==0 ) {
+      if(this.Tiempo==0 && this.flag==true) {
         clearInterval(this.repetidor);
         this.Verificar();
         this.ocultarVerificar=true;
@@ -58,6 +65,10 @@ export class AnagramaComponent implements OnInit {
 
 
  Verificar(){
+    //this.flag=false;
+    //clearInterval(this.repetidor);
+    //this.ocultarVerificar=true;
+    //this.Tiempo=15;
 
    if(this.miJuego.verificar())
    {
@@ -65,19 +76,34 @@ export class AnagramaComponent implements OnInit {
     this.enviarJuego.emit(this.miJuego);
     this.Tiempo=0;
     console.log("ok verificado");
-     console.log(this.miJuego);
-     this.MostarMensaje("PERFECTO" , true);
+    console.log(this.miJuego);
+    this.MostarMensaje("PERFECTO" , true);
     
+     
+
+
    }
    else 
-   {
-    this.ocultarVerificar=false;
-   this.enviarJuego.emit(this.miJuego);
-   console.log("no verificado");
-    console.log(this.miJuego);
-    this.MostarMensaje("ERROR" , false);
-   }
- }
+      {
+        this.ocultarVerificar=false;
+        this.Tiempo=0;
+        this.enviarJuego.emit(this.miJuego);
+        console.log("no verificado");
+        console.log(this.miJuego);
+        this.MostarMensaje("Perdiste!" , false);
+       
+      }
+ 
+      let jugador = this.datosToken.getUsuario();
+
+      var juegoDB = new JuegoDB('Anagrama',jugador,this.miJuego.gano);     
+ 
+      this.juegoService.GuardarPartida(juegoDB).subscribe(data =>{});
+ 
+  
+  
+  
+  }
 
   ngOnInit() {
 
