@@ -13,7 +13,8 @@ import 'rxjs/add/operator/toPromise';
 export class MiHttpService {
 
 
-  api="http://localhost/Programacion-3-2017/TP_ESTACIONAMIENTO_DV/";
+  api="http://damianvogel.000webhostapp.com/";
+  //api="http://localhost/Programacion-3-2017/TP_ESTACIONAMIENTO_DV/";
 
   //api="http://localhost/tpjuegos/";
 
