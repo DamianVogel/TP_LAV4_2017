@@ -55,8 +55,20 @@ export class LoginComponent implements OnInit {
       
       this.respuesta = JSON.parse(data._body);
       
-     //console.log(this.respuesta);     
-      
+     console.log("dentro del login"+this.respuesta);     
+     if ( this.respuesta.status)
+     {
+       //console.log(this.datosToken.token);
+       localStorage.setItem('token', this.respuesta.token);
+       //this.router.navigateByUrl("/Principal");
+       this.router.navigate(['/Principal']);
+     }
+     else
+         {
+           alert("Error intente de nuevo");
+           //this.router.navigateByUrl("/Login");
+           this.router.navigate(['/Login']);
+         }  
             // if ( this.respuesta.status)
             //   {
             //     //console.log(this.datosToken.token);
@@ -89,13 +101,13 @@ export class LoginComponent implements OnInit {
   
   
   MoverBarraDeProgreso() {
-    
+    this.Entrar();
     this.logeando=false;
     this.clase="progress-bar progress-bar-danger progress-bar-striped active";
     this.progresoMensaje="NSA spy..."; 
     let timer = TimerObservable.create(200, 50);
     this.subscription = timer.subscribe(t => {
-      this.Entrar();
+      
       console.log("inicio");
       this.progreso=this.progreso+1;
       this.ProgresoDeAncho=this.progreso+20+"%";
@@ -124,45 +136,13 @@ export class LoginComponent implements OnInit {
         case 100:
         
         console.log("final");
-          this.subscription.unsubscribe();
-         
-
-          if ( this.respuesta.status)
-              {
-                //console.log(this.datosToken.token);
-                localStorage.setItem('token', this.respuesta.token);
-                //this.router.navigateByUrl("/Principal");
-                this.router.navigate(['/Principal']);
-              }
-              else
-                  {
-                    alert("Error intente de nuevo");
-                    //this.router.navigateByUrl("/Login");
-                    this.router.navigate(['/Login']);
-                  }  
-        
-        
-         
-         
-         
+          this.subscription.unsubscribe();      
           // this.Entrar();
           break;
       }     
     });
     //this.logeando=true;
-    if ( this.respuesta.status)
-              {
-                //console.log(this.datosToken.token);
-                localStorage.setItem('token', this.respuesta.token);
-                //this.router.navigateByUrl("/Principal");
-                this.router.navigate(['/Principal']);
-              }
-              else
-                  {
-                    alert("Error intente de nuevo");
-                    //this.router.navigateByUrl("/Login");
-                    this.router.navigate(['/Login']);
-                  }  
+    
         
         
 
